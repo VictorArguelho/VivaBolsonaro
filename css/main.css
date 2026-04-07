@@ -1,0 +1,34 @@
+#bolsonaro-tittle {
+    margin-bottom: 100px;
+}
+
+#bolsonaro-image {
+    border: 5px solid black;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+#bolsonaro-text {
+    margin: 20px;
+}
+
+#bolsonaro-help-button {
+    background-color:rgb(92, 182, 41);
+    font-size: 130%;
+    border: 3px solid black;
+    border-radius: 5px;
+    cursor: pointer
+}
+
+#bolsonaro-help-button:hover {
+    filter: brightness(1.1);
+    transform: scale(1.02);
+}
+
+#bolsonaro-help-button:active {
+    transform: scale(0.95);
+}
+
+#bolsonaro-helps-text {
+    margin: 20px;
+}
