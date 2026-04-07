@@ -1,8 +1,8 @@
-export const elements = {
-    get image() { return document.getElementById('bolsonaro-image'); },
-    get button() { return document.getElementById('bolsonaro-help-button'); },
-    get text() { return document.getElementById('bolsonaro-helps-text'); },
-    get upgradeBtn() { return document.getElementById('upgrade-bolsonaro-click-button'); }
+export const elements = { 
+    image: document.getElementById('bolsonaro-image'), 
+    button: document.getElementById('bolsonaro-help-button'), 
+    text: document.getElementById('bolsonaro-helps-text'), 
+    upgradeBtn: document.getElementById('upgrade-bolsonaro-click-button') 
 };
 
 const paths = {
