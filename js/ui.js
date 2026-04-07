@@ -11,8 +11,6 @@ const paths = {
 };
 
 export function updateDisplay(state) {
-        console.log(elements.text);
-
     elements.text.innerText = `Bolsonaro foi ajudado ${state.bolsonaroHelps} vezes`;
     elements.image.src = (state.bolsonaroHelps === 0) ? paths.sad : paths.happy;
 }
