@@ -1,13 +1,10 @@
-import { gameState, addHelp, buyUpgrade } from './game.js';
-import { elements, updateDisplay } from './ui.js';
+import { gameState, addHelp, buyUpgrade } from "./game.js";
+import { elements, updateDisplay } from "./ui.js";
 
+window.addEventListener("DOMContentLoaded", () => {
+  setInterval(() => updateDisplay(gameState), 16);
 
-window.addEventListener('DOMContentLoaded', () => {
+  elements.button.addEventListener("click", addHelp);
 
-    setInterval(() => updateDisplay(gameState), 16);
-
-    elements.button.addEventListener('click', addHelp);
-
-    elements.upgradeBtn.addEventListener('click', buyUpgrade);
-
+  elements.upgradeBtn.addEventListener("click", buyUpgrade);
 });
