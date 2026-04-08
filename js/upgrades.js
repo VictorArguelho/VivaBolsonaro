@@ -48,6 +48,10 @@ export function getAllUpgradesEffects() {
   return allEffects;
 }
 
+export function getUpgradeText(upgradeId) {
+  return `${upgrades[upgradeId].text} | Custo: ${getUpgradePrice(upgradeId)}`;
+}
+
 function getUpgradeEffects(upgradeId) {
   const upgrade = upgrades[upgradeId];
   const effects = upgrade.effects;

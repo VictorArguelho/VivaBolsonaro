@@ -5,7 +5,7 @@ import { gameState, clicked, buyUpgrade } from "./game.js";
 import { elements, updateDisplay } from "./ui.js";
 
 window.addEventListener("DOMContentLoaded", () => {
-  setInterval(() => updateDisplay(gameState), 16);
+  setInterval(() => updateDisplay(), 16);
 
   elements.button.addEventListener("click", clicked);
 
