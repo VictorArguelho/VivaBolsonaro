@@ -1,3 +1,5 @@
+const VERSION = "v0.1"
+
 import { gameState, upgradeId, clicked, buyUpgrade } from "./game.js";
 import { elements, updateDisplay } from "./ui.js";
 
