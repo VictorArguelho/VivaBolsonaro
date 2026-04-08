@@ -1,6 +1,7 @@
-const VERSION = "v0.1"
+const VERSION = "v0.1";
 
-import { gameState, upgradeId, clicked, buyUpgrade } from "./game.js";
+import { upgradeId } from "./upgrades.js";
+import { gameState, clicked, buyUpgrade } from "./game.js";
 import { elements, updateDisplay } from "./ui.js";
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -8,5 +9,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
   elements.button.addEventListener("click", clicked);
 
-  elements.upgradeBtn.addEventListener("click", () => {buyUpgrade(upgradeId.UPGRADE_1)});
+  elements.upgradeBtn.addEventListener("click", () => {
+    buyUpgrade(upgradeId.UPGRADE_1);
+  });
 });
