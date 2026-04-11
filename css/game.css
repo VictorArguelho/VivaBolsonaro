@@ -33,5 +33,6 @@ p {
   font-size: 400%;
   -webkit-text-stroke: 2px black;
 
+  margin-top: -5px;
   margin-bottom: -10px;
 }
