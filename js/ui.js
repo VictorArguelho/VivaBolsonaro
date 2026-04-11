@@ -5,7 +5,9 @@ export const elements = {
   image: document.getElementById("click-image"),
   button: document.getElementById("click-button"),
   text: document.getElementById("click-count").querySelector(".value"),
-  upgradeBtn: document.querySelector('[data-upgrade="1"]'),
+  upgrade01: document.querySelector('[data-upgrade="1"]'),
+  upgrade02: document.querySelector('[data-upgrade="2"]'),
+  upgrade03: document.querySelector('[data-upgrade="3"]'),
   helpsPerClick: document
     .getElementById("points-per-click")
     .querySelector(".value"),
@@ -23,15 +25,16 @@ export function updateDisplay() {
   elements.text.textContent = gameState.bolsonaroHelps;
   elements.image.src = gameState.bolsonaroHelps === 0 ? paths.sad : paths.happy;
 
-  updateUpgrade();
+  updateUpgrade(elements.upgrade01, upgradeId.UPGRADE_1);
+  updateUpgrade(elements.upgrade02, upgradeId.UPGRADE_2);
+  updateUpgrade(elements.upgrade03, upgradeId.UPGRADE_3);
 
   elements.helpsPerClick.textContent = gameState.helpsPerClick;
   elements.helpsPerSecond.textContent = gameState.helpsPerSecond;
 }
 
-function updateUpgrade() {
-  const upgrade = elements.upgradeBtn;
-  const info = getUpgradeInfo(upgradeId.UPGRADE_1);
+function updateUpgrade(upgrade, upgradeId) {
+  const info = getUpgradeInfo(upgradeId);
 
   upgrade.querySelector(".upgrade-title").textContent = info.text;
   upgrade.querySelector('[class="points-per-click"]').textContent =

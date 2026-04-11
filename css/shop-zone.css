@@ -8,11 +8,13 @@
 }
 
 .upgrade {
-  width: 250px;
+  width: 450px;
   background: rgb(var(--green), 0.5);
 
   border: solid 3px rgb(var(--green));
   border-radius: 10px;
+
+  margin-bottom: 20px;
 
   cursor: pointer;
 }

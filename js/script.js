@@ -9,7 +9,15 @@ window.addEventListener("DOMContentLoaded", () => {
 
   elements.button.addEventListener("click", clicked);
 
-  elements.upgradeBtn.addEventListener("click", () => {
+  elements.upgrade01.addEventListener("click", () => {
     buyUpgrade(upgradeId.UPGRADE_1);
+  });
+
+  elements.upgrade02.addEventListener("click", () => {
+    buyUpgrade(upgradeId.UPGRADE_2);
+  });
+
+  elements.upgrade03.addEventListener("click", () => {
+    buyUpgrade(upgradeId.UPGRADE_3);
   });
 });
