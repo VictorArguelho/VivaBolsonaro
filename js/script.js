@@ -1,4 +1,4 @@
-const VERSION = "v0.3";
+const VERSION = "v0.4";
 
 import { upgradeId } from "./upgrades.js";
 import { gameState, clicked, buyUpgrade } from "./game.js";
