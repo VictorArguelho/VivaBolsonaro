@@ -53,8 +53,8 @@ export function getUpgradeInfo(upgradeId) {
   return {
     text: upgrade.text,
     effects: upgrade.effects,
-    cost: getUpgradePrice(upgradeId)
-  }
+    cost: getUpgradePrice(upgradeId),
+  };
 }
 
 function getUpgradeEffects(upgradeId) {

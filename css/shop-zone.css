@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.upgrade strong{
+.upgrade strong {
   color: rgb(var(--yellow));
   -webkit-text-stroke: 0.5px black;
 }
@@ -34,5 +34,5 @@
 
   display: flex;
   flex-direction: column;
-  align-items:start;
+  align-items: start;
 }
