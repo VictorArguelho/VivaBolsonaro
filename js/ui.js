@@ -1,13 +1,13 @@
 import { gameState } from "./game.js";
-import { upgradeId, getUpgradeText } from "./upgrades.js";
+import { upgradeId, getUpgradeInfo } from "./upgrades.js";
 
 export const elements = {
-  image: document.getElementById("bolsonaro-image"),
-  button: document.getElementById("bolsonaro-help-button"),
-  text: document.getElementById("bolsonaro-helps-text"),
-  upgradeBtn: document.getElementById("upgrade-bolsonaro-click-button"),
-  helpsPerClick: document.getElementById("helps-per-click"),
-  helpsPerSecond: document.getElementById("helps-per-second"),
+  image: document.getElementById("click-image"),
+  button: document.getElementById("click-button"),
+  text: document.getElementById("click-count").querySelector(".value"),
+  upgradeBtn: document.querySelector('[data-upgrade="1"]'),
+  helpsPerClick: document.getElementById("points-per-click").querySelector(".value"),
+  helpsPerSecond: document.getElementById("points-per-second").querySelector(".value"),
 };
 
 const paths = {
@@ -16,9 +16,21 @@ const paths = {
 };
 
 export function updateDisplay() {
-  elements.text.innerText = `Bolsonaro foi ajudado ${gameState.bolsonaroHelps} vezes`;
+  elements.text.textContent = gameState.bolsonaroHelps;
   elements.image.src = gameState.bolsonaroHelps === 0 ? paths.sad : paths.happy;
-  elements.upgradeBtn.innerText = getUpgradeText(upgradeId.UPGRADE_1);
-  elements.helpsPerClick.innerText = `Ajudas por click: ${gameState.helpsPerClick}`;
-  elements.helpsPerSecond.innerText = `Ajudas por segundo: ${gameState.helpsPerSecond}`;
+  
+  updateUpgrade()
+
+  elements.helpsPerClick.textContent = gameState.helpsPerClick;
+  elements.helpsPerSecond.textContent = gameState.helpsPerSecond;
+}
+
+function updateUpgrade() {
+  const upgrade = elements.upgradeBtn;
+  const info = getUpgradeInfo(upgradeId.UPGRADE_1);
+
+  upgrade.querySelector('.upgrade-title').textContent = info.text;
+  upgrade.querySelector('[class="points-per-click"]').textContent = `+${info.effects.clickIncome}`;
+  upgrade.querySelector('[class="points-per-second"]').textContent = `+${info.effects.idleIncome}`;
+  upgrade.querySelector('[class="cost"]').textContent = `${info.cost}`;
 }

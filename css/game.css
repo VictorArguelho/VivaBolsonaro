@@ -1,26 +1,36 @@
+:root {
+  --green: 40, 151, 83;
+  --yellow: 249, 199, 48;
+}
+
 body {
-  background-color: rgb(165, 165, 165);
+  background-image: url("../content/3dBrazilUpscale.jpeg");
+  background-size: cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(2px);
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+p {
+  color: rgb(var(--yellow));
+  -webkit-text-stroke: 1px black;
+  font-size: 150%;
 }
 
 .game {
-  padding-top: 50px;
-  display: flex;
-}
-
-.main,
-.shop {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 140%;
+  gap: 50px;
 }
 
-.separator {
-  width: 4px;
-  background-color: #004a1a;
-  height: 750px;
-  align-self: center;
+#game-title {
+  color: rgb(var(--yellow));
+  font-size: 400%;
+  -webkit-text-stroke: 2px black;
+
+  margin-bottom: -10px;
 }
