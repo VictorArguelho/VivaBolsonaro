@@ -9,8 +9,9 @@ body {
   background-attachment: fixed;
   backdrop-filter: blur(2px);
 
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
 
 p {
