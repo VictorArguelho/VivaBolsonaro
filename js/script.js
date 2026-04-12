@@ -1,23 +1,30 @@
-const VERSION = "v1.0";
+export const VERSION = "v1.0";
 
 import { upgradeId } from "./upgrades.js";
-import { gameState, clicked, buyUpgrade } from "./game.js";
-import { elements, updateDisplay } from "./ui.js";
+import { click, buyUpgrade, update} from "./game.js";
+import { updateUI } from "./ui.js";
+import { clickZoneELements, getUpgradeElement } from "./elements.js";
+import { TICK_TIME } from "./consts.js";
 
-window.addEventListener("DOMContentLoaded", () => {
-  setInterval(() => updateDisplay(), 16);
+window.addEventListener("DOMContentLoaded", start);
 
-  elements.button.addEventListener("click", clicked);
+function start() {
+  clickZoneELements.button.addEventListener("click", click);
 
-  elements.upgrade01.addEventListener("click", () => {
-    buyUpgrade(upgradeId.UPGRADE_1);
+  Object.values(upgradeId).forEach((id) => {
+    registerUpgradeClickEffect(id);
   });
 
-  elements.upgrade02.addEventListener("click", () => {
-    buyUpgrade(upgradeId.UPGRADE_2);
-  });
+  setInterval(updateGame, TICK_TIME);
+}
 
-  elements.upgrade03.addEventListener("click", () => {
-    buyUpgrade(upgradeId.UPGRADE_3);
+function updateGame() {
+  updateUI();
+  update();
+}
+
+function registerUpgradeClickEffect(upgradeId) {
+  getUpgradeElement(upgradeId).addEventListener("click", () => {
+    buyUpgrade(upgradeId);
   });
-});
+}

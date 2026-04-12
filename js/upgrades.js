@@ -1,7 +1,8 @@
 export const upgradeId = Object.freeze({
-  UPGRADE_1: "upgrade1",
-  UPGRADE_2: "upgrade2",
-  UPGRADE_3: "upgrade3",
+  UPGRADE_1: "1",
+  UPGRADE_2: "2",
+  UPGRADE_3: "3",
+  UPGRADE_4: "4",
 });
 
 const upgrades = {
@@ -10,23 +11,23 @@ const upgrades = {
     level: 0,
 
     startCost: 15,
-    multPerLevel: 1.28,
+    multPerLevel: 1.25,
 
-    effects: {
-      clickIncome: 1,
-      idleIncome: 0,
+    incomes: {
+      click: 1,
+      idle: 0,
     },
   },
   [upgradeId.UPGRADE_2]: {
     text: "Aumentar muito a ajuda",
     level: 0,
 
-    startCost: 700,
-    multPerLevel: 1.28,
+    startCost: 500,
+    multPerLevel: 1.25,
 
-    effects: {
-      clickIncome: 15,
-      idleIncome: 0,
+    incomes: {
+      click: 0,
+      idle: 50,
     },
   },
   [upgradeId.UPGRADE_3]: {
@@ -34,14 +35,37 @@ const upgrades = {
     level: 0,
 
     startCost: 10000,
-    multPerLevel: 1.28,
+    multPerLevel: 1.25,
 
-    effects: {
-      clickIncome: 75,
-      idleIncome: 0,
+    incomes: {
+      click: 100,
+      idle: 0,
+    },
+  },
+  [upgradeId.UPGRADE_4]: {
+    text: "Aumentar a ajuda pra caralho platinium+",
+    level: 0,
+
+    startCost: 15000,
+    multPerLevel: 1.25,
+
+    incomes: {
+      click: 0,
+      idle: 5000,
     },
   },
 };
+
+export function getUpgradeInfo(upgradeId) {
+  const upgrade = upgrades[upgradeId];
+
+  return Object.freeze({
+    text: upgrade.text,
+    level: upgrade.level,
+    incomes: upgrade.incomes,
+    cost: getUpgradeCost(upgradeId),
+  });
+}
 
 export function levelUpUpgrade(upgradeId) {
   if (!upgrades[upgradeId]) return;
@@ -49,7 +73,7 @@ export function levelUpUpgrade(upgradeId) {
   upgrades[upgradeId].level++;
 }
 
-export function getUpgradePrice(upgradeId) {
+export function getUpgradeCost(upgradeId) {
   if (!upgrades[upgradeId]) return;
 
   const upgrade = upgrades[upgradeId];
@@ -58,36 +82,27 @@ export function getUpgradePrice(upgradeId) {
   return Math.floor(price);
 }
 
-export function getAllUpgradesEffects() {
-  const allEffects = {
-    clickIncome: 0,
-    idleIncome: 0,
+export function getAllUpgradesIncomes() {
+  const allIncomes = {
+    click: 0,
+    idle: 0,
   };
 
   for (const id in upgrades) {
-    const effects = getUpgradeEffects(id);
+    const incomes = getUpgradeIncomes(id);
 
-    allEffects.clickIncome += effects.clickIncome;
-    allEffects.idleIncome += effects.idleIncome;
+    allIncomes.click += incomes.click;
+    allIncomes.idle += incomes.idle;
   }
 
-  return allEffects;
+  return allIncomes;
 }
 
-export function getUpgradeInfo(upgradeId) {
+function getUpgradeIncomes(upgradeId) {
   const upgrade = upgrades[upgradeId];
+  const incomes = upgrade.incomes;
   return {
-    text: upgrade.text,
-    effects: upgrade.effects,
-    cost: getUpgradePrice(upgradeId),
-  };
-}
-
-function getUpgradeEffects(upgradeId) {
-  const upgrade = upgrades[upgradeId];
-  const effects = upgrade.effects;
-  return {
-    clickIncome: effects.clickIncome * upgrade.level,
-    idleIncome: effects.idleIncome * upgrade.level,
+    click: incomes.click * upgrade.level,
+    idle: incomes.idle * upgrade.level,
   };
 }
