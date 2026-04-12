@@ -1,5 +1,3 @@
-export const VERSION = "v1.0";
-
 import { upgradeId } from "./upgrades.js";
 import { click, buyUpgrade, update} from "./game.js";
 import { updateUI } from "./ui.js";
