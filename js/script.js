@@ -9,7 +9,7 @@ import {
 import { updateUI } from "./ui.js";
 import { clickZoneELements, getUpgradeElement } from "./elements.js";
 import { TICK_TIME } from "./consts.js";
-import { Timer } from "./utils/Timer.js";
+import { Timer } from "./utils/timer.js";
 
 window.addEventListener("DOMContentLoaded", start);
 

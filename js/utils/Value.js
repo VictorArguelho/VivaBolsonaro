@@ -1,4 +1,4 @@
-import { SmoothValue } from "./SmoothValue.js";
+import { SmoothValue } from "./smoothValue.js";
 
 export class Value {
   constructor(smoothDuration, startValue) {

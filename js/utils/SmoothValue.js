@@ -1,5 +1,5 @@
 import { TICK_TIME } from "../consts.js";
-import { Mat } from "./Mat.js";
+import { Mat } from "./mat.js";
 
 export class SmoothValue {
   constructor(duration) {

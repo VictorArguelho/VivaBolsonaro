@@ -4,9 +4,9 @@ import {
   getAllUpgradesIncomes,
 } from "./upgrades.js";
 
-import { Value } from "./utils/Value.js";
+import { Value } from "./utils/value.js";
 
-import { Timer } from "./utils/Timer.js";
+import { Timer } from "./utils/timer.js";
 
 export const gameState = Object.freeze({
   get points() {
