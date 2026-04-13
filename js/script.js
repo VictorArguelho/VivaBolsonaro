@@ -3,7 +3,7 @@ import {
   getSave as getUpgradeSave,
   loadSave as loadUpgradeSave,
 } from "./upgrades.js";
-import { click, buyUpgrade, update, recomputeIncomes } from "./game.js";
+import { click, buyUpgrade, update } from "./game.js";
 import { updateUI } from "./ui.js";
 import { clickZoneELements, getUpgradeElement } from "./elements.js";
 import { TICK_TIME } from "./consts.js";
@@ -11,8 +11,10 @@ import { Timer } from "./utils/timer.js";
 import {
   getSave as getPointsSave,
   loadSave as loadPointsSave,
-  update as pointsUpdate
+  update as pointsUpdate,
 } from "./game/points.js";
+
+import { update as incomeUpdate } from "./game/income.js";
 
 const storage = "save2";
 
@@ -36,6 +38,7 @@ function updateGame() {
   updateUI();
   update();
   pointsUpdate();
+  incomeUpdate();
   saveTimer.update();
 
   if (saveTimer.isReady()) {
@@ -60,8 +63,6 @@ function loadGame() {
   const data = JSON.parse(json);
   loadPointsSave(data.gameState);
   loadUpgradeSave(data.upgrades);
-
-  recomputeIncomes();
 }
 
 function saveGame() {

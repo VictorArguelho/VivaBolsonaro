@@ -1,6 +1,5 @@
 import { SmoothValue } from "../utils/smoothValue.js";
-
-const SMOOTH_TIME = 300;
+import { SMOOTH_TIME } from "../consts.js";
 
 let state = {
   points: 0,
