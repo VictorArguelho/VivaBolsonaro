@@ -1,16 +1,20 @@
-import { upgradeId, getSave as getUpgradeSave, loadSave as loadUpgradeSave } from "./upgrades.js";
 import {
-  click,
-  buyUpgrade,
-  update,
-  recomputeIncomes,
-  getSave as getGameStateSave,
-  loadSave as loadGameStateSave
-} from "./game.js";
+  upgradeId,
+  getSave as getUpgradeSave,
+  loadSave as loadUpgradeSave,
+} from "./upgrades.js";
+import { click, buyUpgrade, update, recomputeIncomes } from "./game.js";
 import { updateUI } from "./ui.js";
 import { clickZoneELements, getUpgradeElement } from "./elements.js";
 import { TICK_TIME } from "./consts.js";
 import { Timer } from "./utils/timer.js";
+import {
+  getSave as getPointsSave,
+  loadSave as loadPointsSave,
+  update as pointsUpdate
+} from "./game/points.js";
+
+const storage = "save2";
 
 window.addEventListener("DOMContentLoaded", start);
 
@@ -31,9 +35,10 @@ const saveTimer = new Timer(1000);
 function updateGame() {
   updateUI();
   update();
+  pointsUpdate();
   saveTimer.update();
 
-  if(saveTimer.isReady()){
+  if (saveTimer.isReady()) {
     saveGame();
   }
 }
@@ -45,7 +50,7 @@ function registerUpgradeClickEffect(upgradeId) {
 }
 
 function loadGame() {
-  const json = localStorage.getItem("save");
+  const json = localStorage.getItem(storage);
 
   if (!json) {
     console.log("Nenhum save encontrado");
@@ -53,17 +58,17 @@ function loadGame() {
   }
 
   const data = JSON.parse(json);
-  loadGameStateSave(data.gameState);
+  loadPointsSave(data.gameState);
   loadUpgradeSave(data.upgrades);
-  
+
   recomputeIncomes();
 }
 
 function saveGame() {
   const save = {
-    gameState: getGameStateSave(),
+    gameState: getPointsSave(),
     upgrades: getUpgradeSave(),
   };
   const json = JSON.stringify(save);
-  localStorage.setItem("save", json);
+  localStorage.setItem(storage, json);
 }
