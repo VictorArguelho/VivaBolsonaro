@@ -1,5 +1,5 @@
 import { TICK_TIME } from "../consts.js";
-import { Mat } from "./mat.js";
+import { lerp, clamp } from "./mat.js";
 
 export class SmoothValue {
   constructor(duration) {
@@ -21,10 +21,10 @@ export class SmoothValue {
   }
 
   getCurrent() {
-    return Math.round(Mat.lerp(this.start, this.target, this.#getDelta()));
+    return Math.round(lerp(this.start, this.target, this.#getDelta()));
   }
 
   #getDelta() {
-    return Mat.clamp(this.timeElapsed / this.duration, 0, 1);
+    return clamp(this.timeElapsed / this.duration, 0, 1);
   }
 }
