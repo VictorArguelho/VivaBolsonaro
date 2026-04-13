@@ -3,6 +3,7 @@ import {
   click,
   buyUpgrade,
   update,
+  recomputeIncomes,
   getSave as getGameStateSave,
   loadSave as loadGameStateSave
 } from "./game.js";
@@ -54,6 +55,8 @@ function loadGame() {
   const data = JSON.parse(json);
   loadGameStateSave(data.gameState);
   loadUpgradeSave(data.upgrades);
+  
+  recomputeIncomes();
 }
 
 function saveGame() {

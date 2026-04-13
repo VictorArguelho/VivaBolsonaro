@@ -41,15 +41,11 @@ const idleTimer = new Timer(SMOOTH_TIME);
 export function getSave() {
   return {
     points: gameState.points,
-    clickIncome: gameState.click,
-    idleIncome: gameState.idle,
   };
 }
 
 export function loadSave(save) {
   pointsAmount.setValue(save.points);
-  clickIncome.setValue(save.clickIncome);
-  idleIncome.setValue(save.idleIncome);
 }
 
 export function update() {
@@ -85,7 +81,7 @@ function spendPoints(value) {
   pointsAmount.addValue(-value);
 }
 
-function recomputeIncomes() {
+export function recomputeIncomes() {
   const incomes = getAllUpgradesIncomes();
   clickIncome.setValue(1 + incomes.click);
   idleIncome.setValue(incomes.idle);

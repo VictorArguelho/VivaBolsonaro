@@ -5,7 +5,7 @@ export const upgradeId = Object.freeze({
   UPGRADE_4: "4",
 });
 
-const upgrades = {
+let upgrades = {
   [upgradeId.UPGRADE_1]: {
     text: "Aumentar ajuda",
     level: 0,
