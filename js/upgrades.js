@@ -56,6 +56,14 @@ const upgrades = {
   },
 };
 
+export function getSave() {
+  return upgrades;
+}
+
+export function loadSave(save) {
+  upgrades = save;
+}
+
 export function getUpgradeInfo(upgradeId) {
   const upgrade = upgrades[upgradeId];
 

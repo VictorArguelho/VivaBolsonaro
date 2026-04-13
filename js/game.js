@@ -12,18 +12,18 @@ export const gameState = Object.freeze({
   get points() {
     return pointsAmount.getValue();
   },
-  get visualPoints() {
-    return pointsAmount.getSmoothedValue();
-  },
   get click() {
     return clickIncome.getValue();
   },
-
-  get visualClick() {
-    return clickIncome.getSmoothedValue();
-  },
   get idle() {
     return idleIncome.getValue();
+  },
+
+  get visualPoints() {
+    return pointsAmount.getSmoothedValue();
+  },
+  get visualClick() {
+    return clickIncome.getSmoothedValue();
   },
   get visualIdle() {
     return idleIncome.getSmoothedValue();
@@ -37,6 +37,20 @@ const clickIncome = new Value(SMOOTH_TIME, 1);
 const idleIncome = new Value(SMOOTH_TIME, 0);
 
 const idleTimer = new Timer(SMOOTH_TIME);
+
+export function getSave() {
+  return {
+    points: gameState.points,
+    clickIncome: gameState.click,
+    idleIncome: gameState.idle,
+  };
+}
+
+export function loadSave(save) {
+  pointsAmount.setValue(save.points);
+  clickIncome.setValue(save.clickIncome);
+  idleIncome.setValue(save.idleIncome);
+}
 
 export function update() {
   pointsAmount.update();
