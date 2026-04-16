@@ -1,12 +1,12 @@
 export const upgradeId = Object.freeze({
-  UPGRADE_1: "1",
-  UPGRADE_2: "2",
-  UPGRADE_3: "3",
-  UPGRADE_4: "4",
+  AUMENTAR_AJUDA: "1",
+  AUMENTAR_MUITO_AJUDA: "2",
+  AUMENTAR_AJUDA_CARALHO: "3",
+  AUMENTAR_AJUDA_CARALHO_PLATINIUM: "4",
 });
 
 let upgrades = {
-  [upgradeId.UPGRADE_1]: {
+  [upgradeId.AUMENTAR_AJUDA]: {
     text: "Aumentar ajuda",
     level: 0,
 
@@ -18,7 +18,7 @@ let upgrades = {
       idle: 0,
     },
   },
-  [upgradeId.UPGRADE_2]: {
+  [upgradeId.AUMENTAR_MUITO_AJUDA]: {
     text: "Aumentar muito a ajuda",
     level: 0,
 
@@ -30,7 +30,7 @@ let upgrades = {
       idle: 50,
     },
   },
-  [upgradeId.UPGRADE_3]: {
+  [upgradeId.AUMENTAR_AJUDA_CARALHO]: {
     text: "Aumentar a ajuda pra caralho",
     level: 0,
 
@@ -42,7 +42,7 @@ let upgrades = {
       idle: 0,
     },
   },
-  [upgradeId.UPGRADE_4]: {
+  [upgradeId.AUMENTAR_AJUDA_CARALHO_PLATINIUM]: {
     text: "Aumentar a ajuda pra caralho platinium+",
     level: 0,
 
