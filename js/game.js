@@ -3,7 +3,7 @@ import {
   getUpgradeCost,
 } from "./upgrades.js";
 
-import { earnPoints, spendPoints, hasEnoughPoints } from "./game/points.js";
+import { earnPoints, trySpendPoints, hasEnoughPoints } from "./game/points.js";
 
 import { getClick, getIdle } from "./game/income.js";
 
@@ -27,7 +27,7 @@ export function click() {
 export function buyUpgrade(upgradeId) {
   const price = getUpgradeCost(upgradeId);
   if (hasEnoughPoints(price)) {
-    spendPoints(price);
+    trySpendPoints(price);
     levelUpUpgrade(upgradeId);
   }
 }

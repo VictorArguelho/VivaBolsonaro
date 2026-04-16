@@ -47,7 +47,7 @@ export function earnPoints(amount) {
   setPoints(state.points + amount);
 }
 
-export function spendPoints(amount) {
+export function trySpendPoints(amount) {
   if (amount <= 0) {
     return false;
   }
