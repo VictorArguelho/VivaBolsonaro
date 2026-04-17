@@ -1,7 +1,4 @@
-import {
-  levelUpUpgrade,
-  getUpgradeCost,
-} from "./upgrades.js";
+import { levelUpUpgrade, getUpgradeCost } from "./game/upgrades/upgradesLogic.js";
 
 import { earnPoints, trySpendPoints, hasEnoughPoints } from "./game/points.js";
 

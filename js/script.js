@@ -1,9 +1,10 @@
+import { upgradeId } from "./game/upgrades/upgradesData.js";
+import { renderUpgrades } from "./game/upgrades/upgradesUI.js";
 import {
-  upgradeId,
-  renderUpgrades,
-  getSave as getUpgradeSave,
-  loadSave as loadUpgradeSave,
-} from "./upgrades.js";
+  getSave as getUpgradesSave,
+  loadSave as loadUpgradesSave,
+} from "./game/upgrades/upgradesLogic.js";
+
 import { click, buyUpgrade, update } from "./game.js";
 import { updateUI } from "./ui.js";
 import { clickZoneELements, getUpgradeElement } from "./elements.js";
@@ -64,13 +65,13 @@ function loadGame() {
 
   const data = JSON.parse(json);
   loadPointsSave(data.gameState);
-  loadUpgradeSave(data.upgrades);
+  loadUpgradesSave(data.upgrades);
 }
 
 function saveGame() {
   const save = {
     gameState: getPointsSave(),
-    upgrades: getUpgradeSave(),
+    upgrades: getUpgradesSave(),
   };
   const json = JSON.stringify(save);
   localStorage.setItem(storageName, json);

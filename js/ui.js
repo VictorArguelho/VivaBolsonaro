@@ -1,5 +1,6 @@
 import { clickZoneELements, getUpgradeElement } from "./elements.js";
-import { upgradeId, getUpgradeInfo } from "./upgrades.js";
+import { upgradeId } from "./game/upgrades/upgradesData.js";
+import { getUpgradeInfo } from "./game/upgrades/upgradesLogic.js";
 import { formatNumber } from "./utils/formatNumber.js";
 import { getPoints, getPointsVisual } from "./game/points.js";
 import { getVisualClick, getVisualIdle } from "./game/income.js";
@@ -36,7 +37,7 @@ function updateUpgrade(upgradeId) {
   upgrade.querySelector(".upgrade-title").textContent = info.text;
   upgrade.querySelector(".cost").textContent = `${info.cost}`;
   upgrade.querySelector(".points-per-click").textContent =
-    `+${info.incomes.click}`;
+    `+${info.baseIncomes.click}`;
   upgrade.querySelector(".points-per-second").textContent =
-    `+${info.incomes.idle}`;
+    `+${info.baseIncomes.idle}`;
 }
