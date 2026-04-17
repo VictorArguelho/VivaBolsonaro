@@ -1,5 +1,5 @@
 import { upgradeId } from "./upgradesData.js";
-import { shopZoneElements } from "../../elements.js";
+import { shopZoneElements } from "../../ui/elements.js";
 import { getUpgradeInfo } from "./upgradesLogic.js";
 
 export function renderUpgrades() {

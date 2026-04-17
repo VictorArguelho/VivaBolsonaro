@@ -5,9 +5,9 @@ import {
   loadSave as loadUpgradesSave,
 } from "./game/upgrades/upgradesLogic.js";
 
-import { click, buyUpgrade, update } from "./game.js";
-import { updateUI } from "./ui.js";
-import { clickZoneELements, getUpgradeElement } from "./elements.js";
+import { click, buyUpgrade, update } from "./game/game.js";
+import { updateUI } from "./ui/ui.js";
+import { clickZoneELements, getUpgradeElement } from "./ui/elements.js";
 import { TICK_TIME } from "./consts.js";
 import { Timer } from "./utils/timer.js";
 import {

@@ -1,9 +1,9 @@
 import { clickZoneELements, getUpgradeElement } from "./elements.js";
-import { upgradeId } from "./game/upgrades/upgradesData.js";
-import { getUpgradeInfo } from "./game/upgrades/upgradesLogic.js";
-import { formatNumber } from "./utils/formatNumber.js";
-import { getPoints, getPointsVisual } from "./game/points.js";
-import { getVisualClick, getVisualIdle } from "./game/income.js";
+import { upgradeId } from "../game/upgrades/upgradesData.js";
+import { getUpgradeInfo } from "../game/upgrades/upgradesLogic.js";
+import { formatNumber } from "../utils/formatNumber.js";
+import { getPoints, getPointsVisual } from "../game/points.js";
+import { getVisualClick, getVisualIdle } from "../game/income.js";
 
 const contentPaths = {
   happy: "content/HappyBolsonaro.jpg",
