@@ -10,7 +10,8 @@ export const clickZoneELements = Object.freeze({
     .querySelector(".value"),
 });
 
-const shopZoneElements = {
+export const shopZoneElements = {
+  shopZone: document.querySelector('.zone[data-zone="shop"]'),
   upgrades: {},
 };
 

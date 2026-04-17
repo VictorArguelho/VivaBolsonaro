@@ -1,5 +1,6 @@
 import {
   upgradeId,
+  renderUpgrades,
   getSave as getUpgradeSave,
   loadSave as loadUpgradeSave,
 } from "./upgrades.js";
@@ -16,12 +17,13 @@ import {
 
 import { update as incomeUpdate } from "./game/income.js";
 
-const storage = "save2";
+const storageName = "save2";
 
 window.addEventListener("DOMContentLoaded", start);
 
 function start() {
   clickZoneELements.button.addEventListener("click", click);
+  renderUpgrades();
 
   Object.values(upgradeId).forEach((id) => {
     registerUpgradeClickEffect(id);
@@ -53,7 +55,7 @@ function registerUpgradeClickEffect(upgradeId) {
 }
 
 function loadGame() {
-  const json = localStorage.getItem(storage);
+  const json = localStorage.getItem(storageName);
 
   if (!json) {
     console.log("Nenhum save encontrado");
@@ -71,5 +73,5 @@ function saveGame() {
     upgrades: getUpgradeSave(),
   };
   const json = JSON.stringify(save);
-  localStorage.setItem(storage, json);
+  localStorage.setItem(storageName, json);
 }

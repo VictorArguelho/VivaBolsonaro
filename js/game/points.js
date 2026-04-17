@@ -9,6 +9,22 @@ let state = {
 
 const pointsVisual = new SmoothValue(SMOOTH_TIME, state.points);
 
+export function getSave() {
+  return {
+    points: state.points,
+    earned: state.earned,
+    spent: state.spent,
+  };
+}
+
+export function loadSave(save) {
+  state.points = save.points ?? 0;
+  state.earned = save.earned ?? 0;
+  state.spent = save.spent ?? 0;
+
+  pointsVisual.setTarget(state.points);
+}
+
 export function update() {
   pointsVisual.update();
 }
@@ -64,22 +80,6 @@ export function trySpendPoints(amount) {
 
 export function hasEnoughPoints(amount) {
   return state.points >= amount;
-}
-
-export function getSave() {
-  return {
-    points: state.points,
-    earned: state.earned,
-    spent: state.spent,
-  };
-}
-
-export function loadSave(save) {
-  state.points = save.points ?? 0;
-  state.earned = save.earned ?? 0;
-  state.spent = save.spent ?? 0;
-
-  pointsVisual.setTarget(state.points);
 }
 
 function setPoints(value) {
