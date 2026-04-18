@@ -1,4 +1,4 @@
-import { TICK_TIME } from "../consts.js";
+import { TICK_TIME } from "../../consts.js";
 
 export class Timer {
   constructor(duration) {

@@ -1,15 +1,15 @@
 import { upgradeId } from "./game/upgrades/upgradesData.js";
-import { renderUpgrades } from "./game/upgrades/upgradesUI.js";
+import { renderUpgrades } from "./ui/upgradesUI.js";
 import {
   getSave as getUpgradesSave,
   loadSave as loadUpgradesSave,
 } from "./game/upgrades/upgradesLogic.js";
 
-import { click, buyUpgrade, update } from "./game/game.js";
+import { click, buyUpgrade, update } from "./game/gameController.js";
 import { updateUI } from "./ui/ui.js";
 import { clickZoneELements, getUpgradeElement } from "./ui/elements.js";
 import { TICK_TIME } from "./consts.js";
-import { Timer } from "./utils/timer.js";
+import { Timer } from "./utils/objects/timer.js";
 import {
   getSave as getPointsSave,
   loadSave as loadPointsSave,

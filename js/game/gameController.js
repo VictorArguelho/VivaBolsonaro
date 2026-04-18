@@ -1,10 +1,7 @@
 import { levelUpUpgrade, getUpgradeCost } from "./upgrades/upgradesLogic.js";
-
 import { earnPoints, trySpendPoints, hasEnoughPoints } from "./points.js";
-
 import { getClick, getIdle } from "./income.js";
-
-import { Timer } from "../utils/timer.js";
+import { Timer } from "../utils/objects/timer.js";
 import { TICK_TIME } from "../consts.js";
 
 const idleTimer = new Timer(TICK_TIME);

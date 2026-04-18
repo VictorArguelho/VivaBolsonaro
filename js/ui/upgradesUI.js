@@ -1,6 +1,6 @@
-import { upgradeId } from "./upgradesData.js";
-import { shopZoneElements } from "../../ui/elements.js";
-import { getUpgradeInfo } from "./upgradesLogic.js";
+import { upgradeId } from "../game/upgrades/upgradesData.js";
+import { shopZoneElements } from "./elements.js";
+import { getUpgradeInfo } from "../game/upgrades/upgradesLogic.js";
 
 export function renderUpgrades() {
   for (const id in upgradeId) {

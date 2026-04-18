@@ -1,4 +1,4 @@
-import { SmoothValue } from "../utils/smoothValue.js";
+import { SmoothValue } from "../utils/objects/smoothValue.js";
 import { SMOOTH_TIME } from "../consts.js";
 
 let state = {
