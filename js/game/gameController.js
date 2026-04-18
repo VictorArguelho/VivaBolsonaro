@@ -21,7 +21,7 @@ const idleTimer = new Timer(TICK_TIME);
 const saveTimer = new Timer(10000);
 
 export function start() {
-  loadSave(loadData(GAME_SAVE_KEY));
+  //loadSave(loadData(GAME_SAVE_KEY));
 }
 
 export function update() {
@@ -48,6 +48,9 @@ export function getSave() {
 }
 
 export function loadSave(save) {
+  if(!save) console.log("objeto nulo");
+  if(!save.points) console.log("points nulo");
+  if(!save.upgrades) console.log("upgrades nulo");
   loadSavePoints(save?.points ?? null);
   loadSaveUpgrades(save?.upgrades ?? null);
 }
