@@ -48,8 +48,8 @@ export function getSave() {
 }
 
 export function loadSave(save) {
-  loadSavePoints(save.points);
-  loadSaveUpgrades(save.upgrades);
+  loadSavePoints(save?.points ?? null);
+  loadSaveUpgrades(save?.upgrades ?? null);
 }
 
 export function click() {

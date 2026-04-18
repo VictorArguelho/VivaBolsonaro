@@ -18,9 +18,9 @@ export function getSave() {
 }
 
 export function loadSave(save) {
-  state.points = save.points ?? 0;
-  state.earned = save.earned ?? 0;
-  state.spent = save.spent ?? 0;
+  state.points = save?.points ?? 0;
+  state.earned = save?.earned ?? 0;
+  state.spent = save?.spent ?? 0;
 
   pointsVisual.setTarget(state.points);
 }

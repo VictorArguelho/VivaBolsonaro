@@ -36,7 +36,7 @@ function updateVisuals() {
 
 function calcIncomes() {
   return {
-    click: calcClick(),
+    click: calcClick() + 1,
     idle: calcIdle(),
   };
 }
