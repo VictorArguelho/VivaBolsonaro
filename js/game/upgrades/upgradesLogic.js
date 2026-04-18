@@ -10,6 +10,10 @@ export function getSave() {
 }
 
 export function loadSave(save) {
+  if (!save) {
+    return;
+  }
+
   setUpgradesState(save);
 }
 
@@ -19,10 +23,10 @@ export function getUpgradeInfo(upgradeId) {
 
   return Object.freeze({
     text: upgradeConfig.text,
-    level: upgradeState.level,
-    baseCost: upgradeState.startCost,
+    baseCost: upgradeConfig.startCost,
     baseIncomes: upgradeConfig.incomes,
 
+    level: upgradeState.level,
     cost: getUpgradeCost(upgradeId),
     incomes: getUpgradeIncomes(upgradeId),
   });

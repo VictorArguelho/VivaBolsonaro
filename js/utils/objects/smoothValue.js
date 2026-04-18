@@ -16,7 +16,7 @@ export class SmoothValue {
 
   setTarget(newTarget) {
     if (newTarget === this.target) return;
-    
+
     this.start = this.getCurrent();
     this.target = newTarget;
     this.timeElapsed = 0;

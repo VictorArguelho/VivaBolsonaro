@@ -1,21 +1,59 @@
-import { levelUpUpgrade, getUpgradeCost } from "./upgrades/upgradesLogic.js";
-import { earnPoints, trySpendPoints, hasEnoughPoints } from "./points.js";
-import { getClick, getIdle } from "./income.js";
+import {
+  levelUpUpgrade,
+  getUpgradeCost,
+  getSave as getSaveUpgrades,
+  loadSave as loadSaveUpgrades,
+} from "./upgrades/upgradesLogic.js";
+import {
+  earnPoints,
+  trySpendPoints,
+  hasEnoughPoints,
+  getSave as getSavePoints,
+  loadSave as loadSavePoints,
+  update as updatePoints,
+} from "./points/points.js";
+import { getClick, getIdle, update as updateIncomes } from "./points/income.js";
 import { Timer } from "../utils/objects/timer.js";
-import { TICK_TIME } from "../consts.js";
+import { TICK_TIME, GAME_SAVE_KEY } from "../consts.js";
+import { saveData, loadData } from "../utils/storage.js";
 
 const idleTimer = new Timer(TICK_TIME);
+const saveTimer = new Timer(10000);
+
+export function start() {
+  loadSave(loadData(GAME_SAVE_KEY));
+}
 
 export function update() {
+  updatePoints();
+  updateIncomes();
+
   idleTimer.update();
+  saveTimer.update();
 
   if (idleTimer.isReady()) {
-     earnPoints(getIdle() * (TICK_TIME / 1000));
+    earnPoints(getIdle() * (TICK_TIME / 1000));
+  }
+
+  if (saveTimer.isReady()) {
+    saveData(GAME_SAVE_KEY, getSave());
   }
 }
 
+export function getSave() {
+  return {
+    points: getSavePoints(),
+    upgrades: getSaveUpgrades(),
+  };
+}
+
+export function loadSave(save) {
+  loadSavePoints(save.points);
+  loadSaveUpgrades(save.upgrades);
+}
+
 export function click() {
-  earnPoints(getClick())
+  earnPoints(getClick());
 }
 
 export function buyUpgrade(upgradeId) {
