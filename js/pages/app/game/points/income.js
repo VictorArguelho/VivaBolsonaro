@@ -1,6 +1,6 @@
-import { SmoothValue } from "../../../../utils/objects/smoothValue.js";
-import { SMOOTH_TIME } from "../../../../consts.js";
-import { getAllUpgradesIncomes } from "../upgrades/upgradesLogic.js";
+import { SmoothValue } from '@utils/objects/smoothValue.js';
+import { SMOOTH_TIME } from '/js/consts.js';
+import { getAllUpgradesIncomes } from '@appGame/upgrades/upgradesLogic.js';
 
 const clickVisual = new SmoothValue(SMOOTH_TIME, 1);
 const idleVisual = new SmoothValue(SMOOTH_TIME, 0);

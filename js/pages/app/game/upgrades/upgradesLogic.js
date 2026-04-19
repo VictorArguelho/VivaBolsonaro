@@ -3,7 +3,7 @@ import {
   upgradesConfig,
   upgradesState,
   setUpgradesState,
-} from "./upgradesData.js";
+} from '@appGame/upgrades/upgradesData.js';
 
 export function getSave() {
   return upgradesState;

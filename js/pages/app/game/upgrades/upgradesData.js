@@ -1,13 +1,13 @@
 export const upgradeId = Object.freeze({
-  AUMENTAR_AJUDA: "1",
-  AUMENTAR_MUITO_AJUDA: "2",
-  AUMENTAR_AJUDA_CARALHO: "3",
-  AUMENTAR_AJUDA_CARALHO_PLATINIUM: "4",
+  AUMENTAR_AJUDA: '1',
+  AUMENTAR_MUITO_AJUDA: '2',
+  AUMENTAR_AJUDA_CARALHO: '3',
+  AUMENTAR_AJUDA_CARALHO_PLATINIUM: '4',
 });
 
 export const upgradesConfig = Object.freeze({
   [upgradeId.AUMENTAR_AJUDA]: Object.freeze({
-    text: "Aumentar ajuda",
+    text: 'Aumentar ajuda',
     startCost: 15,
     multPerLevel: 1.25,
     incomes: Object.freeze({
@@ -17,7 +17,7 @@ export const upgradesConfig = Object.freeze({
   }),
 
   [upgradeId.AUMENTAR_MUITO_AJUDA]: Object.freeze({
-    text: "Aumentar muito a ajuda",
+    text: 'Aumentar muito a ajuda',
     startCost: 500,
     multPerLevel: 1.25,
     incomes: Object.freeze({
@@ -27,7 +27,7 @@ export const upgradesConfig = Object.freeze({
   }),
 
   [upgradeId.AUMENTAR_AJUDA_CARALHO]: Object.freeze({
-    text: "Aumentar ajuda pra caralho",
+    text: 'Aumentar ajuda pra caralho',
     startCost: 10000,
     multPerLevel: 1.25,
     incomes: Object.freeze({
@@ -37,7 +37,7 @@ export const upgradesConfig = Object.freeze({
   }),
 
   [upgradeId.AUMENTAR_AJUDA_CARALHO_PLATINIUM]: Object.freeze({
-    text: "Aumentar ajuda pra caralho platinium+",
+    text: 'Aumentar ajuda pra caralho platinium+',
     startCost: 15000,
     multPerLevel: 1.25,
     incomes: Object.freeze({

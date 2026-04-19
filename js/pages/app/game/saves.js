@@ -1,11 +1,11 @@
-import { loadSave, getSave } from "./gameController.js";
+import { DocumentNotFoundException } from '@server/exceptions/database/databaseExceptions.js';
+import { setUserData, getUserData } from '@services/database.js';
+import { isSessionLogged } from '@services/authentication.js';
 
-import { loadData, saveData } from "../../../utils/storage.js";
-import { setUserData, getUserData } from "../../../server/services/database.js";
-import { isSessionLogged } from "../../../server/services/authentication.js";
+import { GAME_SAVE_KEY, GAME_SAVE_COLLECTION } from '/js/consts.js';
+import { loadData, saveData } from '@utils/storage.js';
 
-import { GAME_SAVE_KEY, GAME_SAVE_COLLECTION } from "../../../consts.js";
-import { DocumentNotFoundException } from "../../../server/exceptions/database/databaseExceptions.js";
+import { loadSave, getSave } from '@appGame/gameController.js';
 
 export async function saveGame() {
   const isLogged = await isSessionLogged();

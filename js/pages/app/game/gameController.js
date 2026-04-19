@@ -1,9 +1,13 @@
+import { Timer } from '@utils/objects/timer.js';
+import { TICK_TIME } from '/js/consts.js';
+
 import {
   levelUpUpgrade,
   getUpgradeCost,
   getSave as getSaveUpgrades,
   loadSave as loadSaveUpgrades,
-} from "./upgrades/upgradesLogic.js";
+} from '@appGame/upgrades/upgradesLogic.js';
+
 import {
   earnPoints,
   trySpendPoints,
@@ -11,11 +15,15 @@ import {
   getSave as getSavePoints,
   loadSave as loadSavePoints,
   update as updatePoints,
-} from "./points/points.js";
-import { getClick, getIdle, update as updateIncomes } from "./points/income.js";
-import { Timer } from "../../../utils/objects/timer.js";
-import { TICK_TIME } from "../../../consts.js";
-import { saveGame, loadGame } from "./saves.js";
+} from '@appGame/points/points.js';
+
+import {
+  getClick,
+  getIdle,
+  update as updateIncomes,
+} from '@appGame/points/income.js';
+
+import { saveGame, loadGame } from '@appGame/saves.js';
 
 const idleTimer = new Timer(TICK_TIME);
 const saveTimer = new Timer(10000);

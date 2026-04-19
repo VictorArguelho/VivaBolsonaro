@@ -1,5 +1,5 @@
-import { SmoothValue } from "../../../../utils/objects/smoothValue.js";
-import { SMOOTH_TIME } from "../../../../consts.js";
+import { SmoothValue } from '@utils/objects/smoothValue.js';
+import { SMOOTH_TIME } from '/js/consts.js';
 
 let state = {
   points: 0,
