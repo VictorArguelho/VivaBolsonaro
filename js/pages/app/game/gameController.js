@@ -15,18 +15,13 @@ import {
 import { getClick, getIdle, update as updateIncomes } from "./points/income.js";
 import { Timer } from "../../../utils/objects/timer.js";
 import { TICK_TIME } from "../../../consts.js";
-import { saveGameLocal, loadGameLocal, saveGameCloud, loadGameCloud } from "./saves.js";
-import { isLogged } from "../app.js";
+import { saveGame, loadGame } from "./saves.js";
 
 const idleTimer = new Timer(TICK_TIME);
 const saveTimer = new Timer(10000);
 
 export async function start() {
-  if (isLogged) {
-    await loadGameCloud();
-    return;
-  }
-  loadGameLocal();
+  await loadGame();
 }
 
 export async function update() {
@@ -41,11 +36,7 @@ export async function update() {
   }
 
   if (saveTimer.isReady()) {
-    if (isLogged) {
-      await saveGameCloud();
-      return;
-    }
-    saveGameLocal();
+    await saveGame();
   }
 }
 

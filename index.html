@@ -18,17 +18,7 @@
   </head>
   <body>
     <header>
-      <nav>
-        <div id="not-logged">
-          <button id="login-button">Login</button>
-          <button id="signup-button">Signup</button>
-        </div>
-
-        <div id="logged">
-          <h1 id="email-text"></h1>
-          <button id="logout-button">Logout</button>
-        </div>
-      </nav>
+      <nav id="header-nav"></nav>
     </header>
 
     <main class="game">
@@ -52,17 +42,32 @@
             Clique no botão para soltar bolsonaro da prisão:
           </p>
           <button type="button" id="click-button">Ajude o Bolsonaro!!</button>
-          <p id="click-count">
+          <p id="click-counter">
             Bolsonaro foi ajudado <strong class="value">0</strong> vezes
           </p>
         </section>
 
-        <section class="zone" data-zone="shop">
-          <h2 class="zone-title">LOJA</h2>
-        </section>
+        <section class="zone" data-zone="shop"></section>
       </div>
     </main>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "@utils/": "/js/utils/",
+          "@server/": "/js/server/",
+          
+          "@services/": "/js/server/services/",
+
+          "@appPage/": "/js/pages/app/",
+          "@loginPage/": "/js/pages/login/",
+          "@signupPage/": "/js/pages/signup/",
+
+          "@appGame/": "/js/pages/app/game/",
+          "@appUI/": "/js/pages/app/ui/"
+        }
+      }
+    </script>
     <script type="module" src="js/server/debug.js"></script>
     <script type="module" src="js/pages/app/app.js"></script>
   </body>
