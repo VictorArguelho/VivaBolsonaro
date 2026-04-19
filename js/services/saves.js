@@ -1,9 +1,9 @@
-import { auth, db } from "./server.js";
+import { authentication, dataBase } from "./firebase.js";
 import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { getSave } from "../game/gameController.js";
 
 export async function saveGame() {
-  const user = auth.currentUser;
+  const user = authentication.currentUser;
 
   if (!user) {
     console.log("Usuário não logado");
@@ -11,7 +11,7 @@ export async function saveGame() {
   }
 
   try {
-    await setDoc(doc(db, "game_saves", user.uid), getSave());
+    await setDoc(doc(database, "game_saves", user.uid), getSave());
     console.log("Jogo salvo!");
   } catch (error) {
     console.error("Erro ao salvar:", error);
@@ -19,7 +19,7 @@ export async function saveGame() {
 }
 
 export async function loadGame() {
-  const user = auth.currentUser;
+  const user = authentication.currentUser;
 
   if (!user) {
     console.log("Usuário não logado");
@@ -27,7 +27,7 @@ export async function loadGame() {
   }
 
   try {
-    const docRef = doc(db, "game_saves", user.uid);
+    const docRef = doc(database, "game_saves", user.uid);
     const snap = await getDoc(docRef);
 
     if (snap.exists()) {
