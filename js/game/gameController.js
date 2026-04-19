@@ -14,14 +14,14 @@ import {
 } from "./points/points.js";
 import { getClick, getIdle, update as updateIncomes } from "./points/income.js";
 import { Timer } from "../utils/objects/timer.js";
-import { TICK_TIME, GAME_SAVE_KEY } from "../consts.js";
-import { saveData, loadData } from "../utils/storage.js";
+import { TICK_TIME } from "../consts.js";
+import { saveGameLocal, loadGameLocal } from "./saves.js";
 
 const idleTimer = new Timer(TICK_TIME);
 const saveTimer = new Timer(10000);
 
 export function start() {
-  loadSave(loadData(GAME_SAVE_KEY));
+  loadGameLocal()
 }
 
 export function update() {
@@ -36,7 +36,7 @@ export function update() {
   }
 
   if (saveTimer.isReady()) {
-    saveData(GAME_SAVE_KEY, getSave());
+    saveGameLocal()
   }
 }
 
@@ -48,9 +48,6 @@ export function getSave() {
 }
 
 export function loadSave(save) {
-  if(!save) console.log("objeto nulo");
-  if(!save.points) console.log("points nulo");
-  if(!save.upgrades) console.log("upgrades nulo");
   loadSavePoints(save?.points ?? null);
   loadSaveUpgrades(save?.upgrades ?? null);
 }
