@@ -4,11 +4,11 @@ import {
   getDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 import { isSessionLogged, getSession } from "./authentication.js";
-import { database, mapServerException } from "./firebase.js";
+import { database, mapServerException } from "../firebase.js";
 import {
   UserNotAuthenticatedException,
   DocumentNotFoundException,
-} from "./exceptions/database/databaseExceptions.js";
+} from "../exceptions/database/databaseExceptions.js";
 
 export async function setUserData(collection, data) {
   const docRef = await getDocumentRef(collection);

@@ -4,16 +4,16 @@ import {
   signOut,
   onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { authentication, mapServerException } from "./firebase.js";
+import { authentication, mapServerException } from "../firebase.js";
 
 import {
   EmailAlreadyInUseException,
   InvalidEmailException,
   WeakPasswordException,
   InvalidCredentialsException,
-} from "./exceptions/authentication/authenticationExceptions.js";
+} from "../exceptions/authentication/authenticationExceptions.js";
 
-import { UnknownErrorException } from "./exceptions/server/serverExceptions.js";
+import { UnknownErrorException } from "../exceptions/server/serverExceptions.js";
 
 export async function signUp(email, password) {
   return await executeAuthenticationOperation(

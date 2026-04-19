@@ -4,7 +4,7 @@ import {
   getSession as serverGetsession,
   isSessionLogged as serverIsLogged,
   logout,
-} from "./authentication.js";
+} from "./services/authentication.js";
 
 import { setUserData, getUserData } from "./database.js";
 
