@@ -48,9 +48,6 @@ export function getSave() {
 }
 
 export function loadSave(save) {
-  if(!save) console.log("objeto nulo");
-  if(!save.points) console.log("points nulo");
-  if(!save.upgrades) console.log("upgrades nulo");
   loadSavePoints(save?.points ?? null);
   loadSaveUpgrades(save?.upgrades ?? null);
 }
