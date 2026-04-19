@@ -6,7 +6,7 @@ import {
   logout,
 } from "./services/authentication.js";
 
-import { setUserData, getUserData } from "./database.js";
+import { setUserData, getUserData } from "./services/database.js";
 
 import { getSave, loadSave } from "../game/gameController.js";
 
