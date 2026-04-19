@@ -6,20 +6,16 @@ import {
   logout,
 } from "./authentication.js";
 
-import { saveGame, loadGame as loadGameData } from "./saves.js";
-import { loadSave } from "../game/gameController.js";
-import {
-  EmailAlreadyInUseException,
-  InvalidEmailException,
-  WeakPasswordException,
-} from "./exceptions/authentication/userExceptions.js";
+import { setUserData, getUserData } from "./database.js";
+
+import { getSave, loadSave } from "../game/gameController.js";
 
 window.debug = {
   signUp,
   login,
   logout,
-  printSession,
-  printIsLogged,
+  session,
+  isLogged,
 
   saveGame,
   loadGame,
@@ -27,7 +23,7 @@ window.debug = {
 
 async function signUp(email, password) {
   try {
-    const session = await serverSignUp(email, password);
+    await serverSignUp(email, password);
   } catch (exception) {
     console.log(exception.message);
   }
@@ -35,22 +31,34 @@ async function signUp(email, password) {
 
 async function login(email, password) {
   try {
-    const session = await serverLogin(email, password);
+    await serverLogin(email, password);
   } catch (exception) {
     console.log(exception.message);
   }
 }
 
-async function printSession() {
+async function session() {
   const session = await serverGetsession();
   console.log(session);
 }
 
-async function printIsLogged() {
+async function isLogged() {
   const isLogged = await serverIsLogged();
   console.log(isLogged);
 }
 
+async function saveGame() {
+  try {
+    await setUserData("game_saves", getSave());
+  } catch (exception) {
+    console.log(exception.message);
+  }
+}
+
 async function loadGame() {
-  loadSave(await loadGameData());
+  try {
+    await loadSave(await getUserData("game_saves"));
+  } catch (exception) {
+    console.log(exception.message);
+  }
 }

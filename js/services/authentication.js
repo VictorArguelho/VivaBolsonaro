@@ -2,24 +2,18 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { authentication } from "./firebase.js";
+import { authentication, mapServerException } from "./firebase.js";
 
 import {
   EmailAlreadyInUseException,
   InvalidEmailException,
   WeakPasswordException,
   InvalidCredentialsException,
-} from "./exceptions/authentication/userExceptions.js";
+} from "./exceptions/authentication/authenticationExceptions.js";
 
-import {
-  OperationNotAllowedException,
-  NetworkRequestFailedException,
-  TooManyRequestsException,
-  InternalErrorException,
-  UnknownErrorException,
-} from "./exceptions/authentication/serverExceptions.js";
+import { UnknownErrorException } from "./exceptions/server/serverExceptions.js";
 
 export async function signUp(email, password) {
   return await executeAuthenticationOperation(
@@ -41,7 +35,7 @@ export async function logout() {
   try {
     await signOut(authentication);
   } catch (error) {
-    throwAuthenticationException(error);
+    mapAuthenticationException(error);
   }
 }
 
@@ -65,38 +59,34 @@ async function executeAuthenticationOperation(operation, email, password) {
 
     return userCredential.user;
   } catch (exception) {
-    throwAuthenticationException(exception);
+    throw mapAuthenticationException(exception);
   }
 }
 
-function throwAuthenticationException(exception) {
+function mapAuthenticationException(exception) {
   const code = exception?.code;
+  const serverException = mapServerException(exception);
+
+  if (!(serverException instanceof UnknownErrorException)) {
+    return serverException;
+  }
 
   switch (code) {
     case "auth/email-already-in-use":
-      throw new EmailAlreadyInUseException();
+      return new EmailAlreadyInUseException();
     case "auth/invalid-email":
-      throw new InvalidEmailException();
+      return new InvalidEmailException();
     case "auth/weak-password":
-      throw new WeakPasswordException();
+      return new WeakPasswordException();
 
     case "auth/invalid-credential":
-      throw new InvalidCredentialsException();
+      return new InvalidCredentialsException();
     case "auth/user-not-found":
-      throw new InvalidCredentialsException();
+      return new InvalidCredentialsException();
     case "auth/wrong-password":
-      throw new InvalidCredentialsException();
-
-    case "auth/operation-not-allowed":
-      throw new OperationNotAllowedException();
-    case "auth/network-request-failed":
-      throw new NetworkRequestFailedException();
-    case "auth/too-many-requests":
-      throw new TooManyRequestsException();
-    case "auth/internal-error":
-      throw new InternalErrorException();
+      return new InvalidCredentialsException();
 
     default:
-      throw new UnknownErrorException();
+      return new UnknownErrorException();
   }
 }

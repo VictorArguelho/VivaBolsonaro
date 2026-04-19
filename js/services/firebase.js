@@ -2,6 +2,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/fireba
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+import {
+  OperationNotAllowedException,
+  NetworkRequestFailedException,
+  TooManyRequestsException,
+  InternalErrorException,
+  UnknownErrorException,
+} from "./exceptions/server/serverExceptions.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCyQfEk65yPoQ7jZPOnXv5P3Vx9EqMOo9U",
   authDomain: "vivabolsonaro-b0fa6.firebaseapp.com",
@@ -13,4 +21,22 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 export const authentication = getAuth(app);
-export const dataBase = getFirestore(app);
+export const database = getFirestore(app);
+
+export function mapServerException(exception) {
+  const code = exception?.code;
+
+  switch (code) {
+    case "auth/operation-not-allowed":
+      return new OperationNotAllowedException();
+    case "auth/network-request-failed":
+      return new NetworkRequestFailedException();
+    case "auth/too-many-requests":
+      return new TooManyRequestsException();
+    case "auth/internal-error":
+      return new InternalErrorException();
+
+    default:
+      return new UnknownErrorException();
+  }
+}

@@ -1,4 +1,4 @@
-export class AuthException extends Error {
+export class AuthenticationException extends Error {
   constructor(message, code) {
     super(message);
     this.name = this.constructor.name;
