@@ -1,4 +1,4 @@
-const prefixes = ["", "K", "M", "B", "T"];
+const prefixes = ['', 'K', 'M', 'B', 'T'];
 
 export function formatNumber(number, precision) {
   const length = number.toString().length;

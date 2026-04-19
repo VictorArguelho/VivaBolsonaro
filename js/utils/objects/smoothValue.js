@@ -1,5 +1,5 @@
-import { TICK_TIME } from "../../consts.js";
-import { lerp, clamp } from "../Mat.js";
+import { TICK_TIME } from '/js/consts.js';
+import { lerp, clamp } from '@utils/Mat.js';
 
 export class SmoothValue {
   constructor(duration) {

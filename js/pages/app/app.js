@@ -1,13 +1,12 @@
-import { render } from "./ui/shop/render.js";
-import { start as startUI, update as updateUI } from "./ui/controller.js";
-import {
-  update as updateGame,
-  start as startGame,
-} from "./game/gameController.js";
-import { TICK_TIME } from "../../consts.js";
-import { isSessionLogged } from "../../server/services/authentication.js";
+import { TICK_TIME } from '/js/consts.js';
 
-window.addEventListener("DOMContentLoaded", start);
+import { start as startUI, update as updateUI } from '@appUI/controller.js';
+import {
+  start as startGame,
+  update as updateGame,
+} from '@appGame/gameController.js';
+
+window.addEventListener('DOMContentLoaded', start);
 
 async function start() {
   await startUI();
