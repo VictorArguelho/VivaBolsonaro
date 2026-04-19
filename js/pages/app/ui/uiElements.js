@@ -1,3 +1,14 @@
+export const headerElements = Object.freeze({
+  login: document.getElementById("login-button"),
+  signup: document.getElementById("signup-button"),
+
+  emailText: document.getElementById("email-text"),
+  logout: document.getElementById("logout-button"),
+
+  logged: document.getElementById("logged"),
+  notLogged: document.getElementById("not-logged"),
+});
+
 export const clickZoneELements = Object.freeze({
   image: document.getElementById("click-image"),
   button: document.getElementById("click-button"),

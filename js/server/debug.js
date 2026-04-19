@@ -8,7 +8,7 @@ import {
 
 import { setUserData, getUserData } from "./services/database.js";
 
-import { getSave, loadSave } from "../game/gameController.js";
+import { getSave, loadSave } from "../pages/app/game/gameController.js";
 
 window.debug = {
   signUp,

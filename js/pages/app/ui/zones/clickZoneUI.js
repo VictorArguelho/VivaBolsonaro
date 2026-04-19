@@ -1,5 +1,5 @@
 import { clickZoneELements } from "../uiElements.js";
-import { formatNumber } from "../../utils/formatNumber.js";
+import { formatNumber } from "../../../../utils/formatNumber.js";
 import { getPointsVisual, getPoints } from "../../game/points/points.js";
 import { getVisualClick, getVisualIdle } from "../../game/points/income.js";
 import { contentPaths } from "../uiConfig.js";

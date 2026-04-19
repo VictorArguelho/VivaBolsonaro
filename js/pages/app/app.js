@@ -5,18 +5,23 @@ import {
   start as startGame,
 } from "./game/gameController.js";
 import { setupEvents } from "./event-handlers/eventsHandle.js";
-import { TICK_TIME } from "./consts.js";
+import { TICK_TIME } from "../../consts.js";
+import { isSessionLogged } from "../../server/services/authentication.js";
 
 window.addEventListener("DOMContentLoaded", start);
+export let isLogged = false;
 
-function start() {
+import { start as headerStart } from "./ui/uiHeader.js";
+async function start() {
+  isLogged = await isSessionLogged();
   startUI();
   setupEvents();
-  startGame();
+  headerStart();
+  await startGame();
   setInterval(update, TICK_TIME);
 }
 
-function update() {
+async function update() {
   updateGame();
-  updateUI();
+  await updateUI();
 }

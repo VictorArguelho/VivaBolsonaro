@@ -1,5 +1,5 @@
-import { SmoothValue } from "../../utils/objects/smoothValue.js";
-import { SMOOTH_TIME } from "../../consts.js";
+import { SmoothValue } from "../../../../utils/objects/smoothValue.js";
+import { SMOOTH_TIME } from "../../../../consts.js";
 import { getAllUpgradesIncomes } from "../upgrades/upgradesLogic.js";
 
 const clickVisual = new SmoothValue(SMOOTH_TIME, 1);
