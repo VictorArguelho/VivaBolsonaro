@@ -18,6 +18,23 @@
     <button id="signup-button">Signup</button>
     <p id="resposta"></p>
 
+    <script type="importmap">
+      {
+        "imports": {
+          "@utils/": "/js/utils/",
+          "@server/": "/js/server/",
+          
+          "@services/": "/js/server/services/",
+
+          "@appPage/": "/js/pages/app/",
+          "@loginPage/": "/js/pages/login/",
+          "@signupPage/": "/js/pages/signup/",
+
+          "@appGame/": "/js/pages/app/game/",
+          "@appUI/": "/js/pages/app/ui/"
+        }
+      }
+    </script>
     <script type="module" src="js/pages/signup/signup.js"></script>
   </body>
 </html>
