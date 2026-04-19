@@ -1,14 +1,14 @@
+import { getSave, loadSave } from '@appGame/gameController.js';
+
 import {
   signUp as serverSignUp,
   login as serverLogin,
   getSession as serverGetsession,
   isSessionLogged as serverIsLogged,
   logout,
-} from "./services/authentication.js";
+} from '@services/authentication.js';
 
-import { setUserData, getUserData } from "./services/database.js";
-
-import { getSave, loadSave } from "../pages/app/game/gameController.js";
+import { setUserData, getUserData } from '@services/database.js';
 
 window.debug = {
   signUp,
@@ -49,7 +49,7 @@ async function isLogged() {
 
 async function saveGame() {
   try {
-    await setUserData("game_saves", getSave());
+    await setUserData('game_saves', getSave());
   } catch (exception) {
     console.log(exception.message);
   }
@@ -57,7 +57,7 @@ async function saveGame() {
 
 async function loadGame() {
   try {
-    await loadSave(await getUserData("game_saves"));
+    await loadSave(await getUserData('game_saves'));
   } catch (exception) {
     console.log(exception.message);
   }
