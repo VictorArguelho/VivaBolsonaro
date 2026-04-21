@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/base/variables.css" />
+    <link rel="stylesheet" href="css/base/typography.css" />
+    <link rel="stylesheet" href="css/base/layout.css" />
+
+    <link rel="stylesheet" href="css/components/buttons.css" />
+    <link rel="stylesheet" href="css/pages/app/header.css" />
+
+    <link rel="stylesheet" href="css/pages/login/login.css" />
+    <title>Viva Bolsonaro v1.5</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <button type="button" class="button text back-button">Voltar</button>
+      </nav>
+    </header>
+
+    <h1 class="title">Entrar</h1>
+
+    <div class="form-container">
+      <div class="form">
+        <div class="form-field">
+          <label class="text">Email</label>
+          <input
+            type="email"
+            class="field text email-field"
+            name="email-field"
+          />
+        </div>
+
+        <div class="form-field">
+          <label class="text">Senha</label>
+          <input
+            type="password"
+            class="field text pass-field"
+            name="pass-field"
+          />
+        </div>
+
+        <button type="button" class="button text login-button">Entrar</button>
+      </div>
+    </div>
+
+    <p class="emphasis response"></p>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "@utils/": "/js/utils/",
+          "@server/": "/js/server/",
+
+          "@services/": "/js/server/services/",
+
+          "@appPage/": "/js/pages/app/",
+          "@loginPage/": "/js/pages/login/",
+          "@signupPage/": "/js/pages/signup/",
+
+          "@appGame/": "/js/pages/app/game/",
+          "@appUI/": "/js/pages/app/ui/"
+        }
+      }
+    </script>
+    <script type="module" src="js/pages/login/login.js"></script>
+  </body>
+</html>

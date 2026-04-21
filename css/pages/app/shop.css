@@ -1,0 +1,38 @@
+.zone--shop {
+  background: rgb(var(--green), 0.3);
+  border: 3px solid rgb(var(--green));
+  gap: 1rem;
+}
+
+.zone--shop .text {
+  color: rgb(var(--green));
+  font-size: 1.3rem;
+}
+
+.zone--shop .emphasis {
+  color: rgb(var(--yellow));
+  font-size: 1.5rem;
+}
+
+.zone--shop .title {
+  color: rgb(var(--green));
+  font-size: 3.5rem;
+}
+
+.zone--shop .upgrade {
+  width: 90%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.zone--shop .upgrade .stats {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.zone--shop .upgrade .title {
+  color: rgb(var(--yellow));
+  font-size: 2rem;
+}

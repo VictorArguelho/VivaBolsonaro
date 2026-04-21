@@ -3,7 +3,7 @@ export function saveData(key, data) {
     const json = JSON.stringify(data);
     localStorage.setItem(key, json);
   } catch (err) {
-    console.error("Erro ao salvar:", err);
+    console.error('Erro ao salvar:', err);
   }
 }
 
@@ -15,7 +15,7 @@ export function loadData(key, defaultValue = null) {
 
     return JSON.parse(json);
   } catch (err) {
-    console.error("Erro ao carregar:", err);
+    console.error('Erro ao carregar:', err);
     return defaultValue;
   }
 }

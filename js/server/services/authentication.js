@@ -3,17 +3,18 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-import { authentication, mapServerException } from "../firebase.js";
+} from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';
 
 import {
   EmailAlreadyInUseException,
   InvalidEmailException,
   WeakPasswordException,
   InvalidCredentialsException,
-} from "../exceptions/authentication/authenticationExceptions.js";
+} from '@server/exceptions/authentication/authenticationExceptions.js';
 
-import { UnknownErrorException } from "../exceptions/server/serverExceptions.js";
+import { UnknownErrorException } from '@server/exceptions/server/serverExceptions.js';
+
+import { authentication, mapServerException } from '@server/firebase.js';
 
 export async function signUp(email, password) {
   return await executeAuthenticationOperation(
@@ -72,18 +73,18 @@ function mapAuthenticationException(exception) {
   }
 
   switch (code) {
-    case "auth/email-already-in-use":
+    case 'auth/email-already-in-use':
       return new EmailAlreadyInUseException();
-    case "auth/invalid-email":
+    case 'auth/invalid-email':
       return new InvalidEmailException();
-    case "auth/weak-password":
+    case 'auth/weak-password':
       return new WeakPasswordException();
 
-    case "auth/invalid-credential":
+    case 'auth/invalid-credential':
       return new InvalidCredentialsException();
-    case "auth/user-not-found":
+    case 'auth/user-not-found':
       return new InvalidCredentialsException();
-    case "auth/wrong-password":
+    case 'auth/wrong-password':
       return new InvalidCredentialsException();
 
     default:
