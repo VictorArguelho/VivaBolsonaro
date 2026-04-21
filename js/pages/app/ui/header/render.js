@@ -16,13 +16,13 @@ export async function render() {
 function getLoggedHTML(email) {
   return `
     <span class="text email-text">${email}</span>
-    <button type="button" class="button text logout-button">Logout</button>
+    <button type="button" class="button text logout-button">Sair</button>
   `;
 }
 
 function getNotLoggedHTML() {
   return `
-    <button type="button" class="button text login-button">Login</button>
-    <button type="button" class="button text signup-button">Sign up</button>
+    <button type="button" class="button text login-button">Entrar</button>
+    <button type="button" class="button text signup-button">Cadastrar</button>
   `;
 }

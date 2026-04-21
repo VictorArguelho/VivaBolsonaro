@@ -13,22 +13,53 @@
     <link rel="stylesheet" href="css/base/typography.css" />
     <link rel="stylesheet" href="css/base/layout.css" />
 
+    <link rel="stylesheet" href="css/components/buttons.css" />
+    <link rel="stylesheet" href="css/pages/app/header.css" />
+
+    <link rel="stylesheet" href="css/pages/login/login.css" />
     <title>Viva Bolsonaro v1.5</title>
   </head>
   <body>
-    <p>login</p>
-    <button id="back-main-page">Back to main page</button>
-    <input type="email" name="email-text" id="email-field"></input>
-    <input type="password" name="password-text" id="password-field"></input>
-    <button id="login-button">Login</button>
-    <p id="resposta"></p>
+    <header class="header">
+      <nav class="nav">
+        <button type="button" class="button text back-button">Voltar</button>
+      </nav>
+    </header>
+
+    <h1 class="title">Entrar</h1>
+
+    <div class="form-container">
+      <div class="form">
+        <div class="form-field">
+          <label class="text">Email</label>
+          <input
+            type="email"
+            class="field text email-field"
+            name="email-field"
+          />
+        </div>
+
+        <div class="form-field">
+          <label class="text">Senha</label>
+          <input
+            type="password"
+            class="field text pass-field"
+            name="pass-field"
+          />
+        </div>
+
+        <button type="button" class="button text login-button">Entrar</button>
+      </div>
+    </div>
+
+    <p class="emphasis response"></p>
 
     <script type="importmap">
       {
         "imports": {
           "@utils/": "/js/utils/",
           "@server/": "/js/server/",
-          
+
           "@services/": "/js/server/services/",
 
           "@appPage/": "/js/pages/app/",

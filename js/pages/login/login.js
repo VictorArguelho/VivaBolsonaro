@@ -4,11 +4,11 @@ import { switchPage } from '/js/pages.js';
 window.addEventListener('DOMContentLoaded', start);
 
 const elements = {
-  back: document.getElementById('back-main-page'),
-  emailField: document.getElementById('email-field'),
-  passwordField: document.getElementById('password-field'),
-  loginBtn: document.getElementById('login-button'),
-  messageTxt: document.getElementById('resposta'),
+  back: document.querySelector('.back-button'),
+  emailField: document.querySelector('.email-field'),
+  passwordField: document.querySelector('.pass-field'),
+  loginBtn: document.querySelector('.login-button'),
+  messageTxt: document.querySelector('.response'),
 };
 
 function start() {

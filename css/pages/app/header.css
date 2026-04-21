@@ -33,10 +33,11 @@
 }
 
 .nav .email-text {
-    color: rgb(var(--yellow));
+  color: rgb(var(--yellow));
 }
 
 .nav .signup-button {
+  width: auto;
   color: rgb(var(--yellow));
   background-color: rgb(var(--yellow), 0.5);
   border-color: rgb(var(--yellow));
