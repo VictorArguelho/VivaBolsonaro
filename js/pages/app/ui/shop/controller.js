@@ -21,10 +21,9 @@ function updateUpgrade(upgradeId) {
   const upgrade = getUpgrade(upgradeId);
   const info = getUpgradeInfo(upgradeId);
 
-  upgrade.querySelector('.upgrade-title').textContent = info.text;
-  upgrade.querySelector('.cost').textContent = `${info.cost}`;
-  upgrade.querySelector('.points-per-click').textContent =
+  upgrade.querySelector('.cost-value').textContent = `${info.cost}`;
+  upgrade.querySelector('.income-click-value').textContent =
     `+${info.baseIncomes.click}`;
-  upgrade.querySelector('.points-per-second').textContent =
+  upgrade.querySelector('.income-idle-value').textContent =
     `+${info.baseIncomes.idle}`;
 }

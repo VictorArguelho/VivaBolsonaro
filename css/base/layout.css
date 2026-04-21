@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+
+  background-image: url('/content/BrazilBackground.jpeg');
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(2px);
+  transform: scale(1.05);
+
+  z-index: -1;
+}

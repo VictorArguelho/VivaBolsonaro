@@ -1,14 +1,8 @@
 export const elements = Object.freeze({
-  image: document.getElementById('click-image'),
-  clickBtn: document.getElementById('click-button'),
+  image: document.querySelector('.zone--click .image'),
+  clickBtn: document.querySelector('.zone--click .button-click'),
 
-  clickCounter: document
-    .getElementById('click-counter')
-    .querySelector('.value'),
-  clickIncome: document
-    .getElementById('points-per-click')
-    .querySelector('.value'),
-  idleIncome: document
-    .getElementById('points-per-second')
-    .querySelector('.value'),
+  clickCounter: document.querySelector('.zone--click .counter-value'),
+  clickIncome: document.querySelector('.zone--click .income-click-value'),
+  idleIncome: document.querySelector('.zone--click .income-idle-value'),
 });

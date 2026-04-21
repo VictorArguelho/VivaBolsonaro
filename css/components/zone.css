@@ -1,0 +1,19 @@
+.zone {
+  width: 100%;
+  min-height: 800px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+
+  backdrop-filter: blur(3px);
+  border-radius: 35px;
+
+  transition: transform 0.1s ease;
+}
+
+.zone:hover {
+  transform: scale(1.02);
+}

@@ -1,0 +1,14 @@
+.zones {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3%;
+  width: 95%;
+}
+
+@media (max-width: 1000px) {
+  .zones {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}

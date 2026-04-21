@@ -37,7 +37,7 @@ export const upgradesConfig = Object.freeze({
   }),
 
   [upgradeId.AUMENTAR_AJUDA_CARALHO_PLATINIUM]: Object.freeze({
-    text: 'Aumentar ajuda pra caralho platinium+',
+    text: 'Aumentar ajuda platinium+',
     startCost: 15000,
     multPerLevel: 1.25,
     incomes: Object.freeze({

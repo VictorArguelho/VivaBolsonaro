@@ -1,0 +1,43 @@
+.header {
+  height: 70px;
+
+  background-color: rgb(var(--green), 0.3);
+  backdrop-filter: blur(50%);
+
+  border-bottom: 3px solid rgb(var(--yellow), 0.7);
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding-right: 1rem;
+}
+
+.nav {
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav .button {
+  width: 6rem;
+  height: 3rem;
+}
+
+.nav .text {
+  color: rgb(var(--green));
+  font-size: 1.5rem;
+}
+
+.nav .email-text {
+    color: rgb(var(--yellow));
+}
+
+.nav .signup-button {
+  color: rgb(var(--yellow));
+  background-color: rgb(var(--yellow), 0.5);
+  border-color: rgb(var(--yellow));
+}

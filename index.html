@@ -9,45 +9,63 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="css/game.css" />
-    <link rel="stylesheet" href="css/button.css" />
-    <link rel="stylesheet" href="css/zones.css" />
-    <link rel="stylesheet" href="css/click-zone.css" />
-    <link rel="stylesheet" href="css/shop-zone.css" />
+    <link rel="stylesheet" href="css/base/variables.css" />
+    <link rel="stylesheet" href="css/base/typography.css" />
+    <link rel="stylesheet" href="css/base/layout.css" />
+
+    <link rel="stylesheet" href="css/components/buttons.css" />
+    <link rel="stylesheet" href="css/components/zone.css" />
+
+    <link rel="stylesheet" href="css/pages/app/layout.css" />
+    <link rel="stylesheet" href="css/pages/app/zones.css" />
+    <link rel="stylesheet" href="css/pages/app/click.css" />
+    <link rel="stylesheet" href="css/pages/app/header.css" />
+    <link rel="stylesheet" href="css/pages/app/shop.css" />
+
     <title>Viva Bolsonaro v1.5</title>
   </head>
   <body>
-    <header>
-      <nav id="header-nav"></nav>
+    <header class="header">
+      <nav class="nav"></nav>
     </header>
 
     <main class="game">
-      <h1 id="game-title">BOLSONARO MERECE JUSTIÇA!!</h1>
+      <h1 class="title">Bolsonaro mereçe justiça!!</h1>
 
       <div class="zones">
-        <section class="zone" data-zone="click">
-          <h2 class="zone-title">AJUDE O BOLSONARO!</h2>
+        <section class="zone zone--click">
+          <h2 class="title">Ajude o bolsonaro!</h2>
 
-          <div class="stats">
-            <p id="points-per-click">
-              Ajudas por click: <strong class="value">1</strong>
-            </p>
-            <p id="points-per-second">
-              Ajudas por segundo: <strong class="value">0</strong>
-            </p>
+          <div class="content-group">
+            <div class="stats">
+              <p class="text">
+                Ajudas por click:
+                <span class="emphasis income-click-value"></span>
+              </p>
+
+              <p class="text">
+                Ajudas por segundo:
+                <span class="emphasis income-idle-value"></span>
+              </p>
+            </div>
+
+            <img class="image" src="content/SadBolsonaro.jpg" />
+
+            <p class="text">Clique no botão para soltar bolsonaro da prisão:</p>
           </div>
 
-          <img id="click-image" src="content/SadBolsonaro.jpg" />
-          <p id="click-text">
-            Clique no botão para soltar bolsonaro da prisão:
-          </p>
-          <button type="button" id="click-button">Ajude o Bolsonaro!!</button>
-          <p id="click-counter">
-            Bolsonaro foi ajudado <strong class="value">0</strong> vezes
+          <button type="button" class="button title button-click">
+            Ajude o bolsonaro!!
+          </button>
+
+          <p class="text">
+            Bolsonaro foi ajudado
+            <span class="emphasis counter-value"></span>
+            vezes
           </p>
         </section>
 
-        <section class="zone" data-zone="shop"></section>
+        <section class="zone zone--shop"></section>
       </div>
     </main>
 
@@ -56,7 +74,7 @@
         "imports": {
           "@utils/": "/js/utils/",
           "@server/": "/js/server/",
-          
+
           "@services/": "/js/server/services/",
 
           "@appPage/": "/js/pages/app/",

@@ -15,14 +15,14 @@ export async function render() {
 
 function getLoggedHTML(email) {
   return `
-    <h1 id="email-text">${email}</h1>
-    <button id="logout-button">Logout</button>
+    <span class="text email-text">${email}</span>
+    <button type="button" class="button text logout-button">Logout</button>
   `;
 }
 
 function getNotLoggedHTML() {
   return `
-    <button id="login-button">Login</button>
-    <button id="signup-button">Signup</button>
+    <button type="button" class="button text login-button">Login</button>
+    <button type="button" class="button text signup-button">Sign up</button>
   `;
 }

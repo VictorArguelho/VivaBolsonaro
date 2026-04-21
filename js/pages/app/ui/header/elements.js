@@ -1,7 +1,7 @@
 import { isSessionLogged } from '@services/authentication.js';
 
 export const elements = {
-  header: document.getElementById('header-nav'),
+  header: document.querySelector('.nav'),
   logged: {},
   notLogged: {},
 };
@@ -19,7 +19,7 @@ export async function refresh() {
 
 function isLoggedRefresh() {
   elements.logged = {
-    logoutBtn: document.getElementById('logout-button'),
+    logoutBtn: document.querySelector('.logout-button'),
   };
   elements.notLogged = {};
 }
@@ -27,7 +27,7 @@ function isLoggedRefresh() {
 function isNotLoggedRefresh() {
   elements.logged = {};
   elements.notLogged = {
-    loginBtn: document.getElementById('login-button'),
-    signupBtn: document.getElementById('signup-button'),
+    loginBtn: document.querySelector('.login-button'),
+    signupBtn: document.querySelector('.signup-button'),
   };
 }

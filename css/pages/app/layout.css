@@ -1,0 +1,11 @@
+.game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.game .title {
+  color: rgb(var(--yellow));
+  font-size: 5rem;
+}

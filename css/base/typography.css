@@ -1,0 +1,14 @@
+body {
+  font-family: 'Anton', system-ui;
+  text-transform: uppercase;
+  letter-spacing: 5%;
+
+  -webkit-text-stroke: 0.1rem black;
+}
+
+p, h1, h2, h3 {
+  margin: 0;
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+  text-align: center;
+}
