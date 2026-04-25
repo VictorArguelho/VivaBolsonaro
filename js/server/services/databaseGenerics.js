@@ -3,6 +3,8 @@ import { database } from '@server/firebase.js';
 import { DocumentNotFoundException } from '@server/exceptions/database/databaseExceptions.js';
 
 export async function getDataGeneric(collectionName, id, getOperation) {
+  console.log('leitura feita'); //debug
+
   const docRef = getDocRef(collectionName, id);
   const snapshot = await getOperation(docRef);
 
@@ -18,6 +20,8 @@ export async function getCollectionGeneric(
   queryOperation,
   ...constraints
 ) {
+  console.log('leitura coleção feita'); //debug
+
   const colRef = col(database, collectionName);
 
   const query =
@@ -32,6 +36,8 @@ export async function getCollectionGeneric(
 }
 
 export async function setDataGeneric(collectionName, id, data, setOperation) {
+  console.log('escrita feita'); //debug
+
   const docRef = getDocRef(collectionName, id);
   await setOperation(docRef, data);
 }
