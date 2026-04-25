@@ -21,9 +21,9 @@ export async function start() {
   shopStart();
 }
 
-export async function update() {
-  await headerUpdate();
-  clickUpdate();
-  shopUpdate();
-  await leaderboardUpdate();
+export async function update(deltaTime) {
+  await headerUpdate(deltaTime);
+  clickUpdate(deltaTime);
+  shopUpdate(deltaTime);
+  await leaderboardUpdate(deltaTime);
 }

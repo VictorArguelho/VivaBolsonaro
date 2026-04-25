@@ -11,7 +11,7 @@ export function start() {
   setup();
 }
 
-export function update() {
+export function update(deltaTime) {
   elements.clickCounter.textContent = formatNumber(getPointsVisual(), 2);
   elements.clickIncome.textContent = formatNumber(getVisualClick(), 2);
   elements.idleIncome.textContent = formatNumber(getVisualIdle(), 2);

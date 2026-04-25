@@ -1,5 +1,4 @@
 import { Timer } from '@utils/objects/timer.js';
-import { TICK_TIME } from '/js/consts.js';
 
 import {
   levelUpUpgrade,
@@ -27,25 +26,21 @@ import { update as updateLeaderboard } from '@appGame/leaderboard.js';
 
 import { saveGame, loadGame } from '@appGame/saves.js';
 
-const idleTimer = new Timer(TICK_TIME);
-const saveTimer = new Timer(10000);
-const leaderboardTimer = new Timer(5000);
+const saveTimer = new Timer(60000);
+const leaderboardTimer = new Timer(30000);
 
 export async function start() {
   await loadGame();
 }
 
-export async function update() {
-  updatePoints();
-  updateIncomes();
+export async function update(deltaTime) {
+  updatePoints(deltaTime);
+  updateIncomes(deltaTime);
 
-  idleTimer.update();
-  saveTimer.update();
-  leaderboardTimer.update();
+  saveTimer.update(deltaTime);
+  leaderboardTimer.update(deltaTime);
 
-  if (idleTimer.isReady()) {
-    earnPoints(getIdle() * (TICK_TIME / 1000));
-  }
+  earnPoints(getIdle() * (deltaTime / 1000));
 
   if (saveTimer.isReady()) {
     await saveGame();

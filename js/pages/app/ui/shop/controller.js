@@ -13,7 +13,7 @@ export function start() {
   setup();
 }
 
-export function update() {
+export function update(deltaTime) {
   for (let id in upgradeId) {
     updateUpgrade(upgradeId[id]);
   }

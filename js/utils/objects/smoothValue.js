@@ -1,4 +1,3 @@
-import { TICK_TIME } from '/js/consts.js';
 import { lerp, clamp } from '@utils/Mat.js';
 
 export class SmoothValue {
@@ -10,8 +9,8 @@ export class SmoothValue {
     this.target = 0;
   }
 
-  update() {
-    this.timeElapsed += TICK_TIME;
+  update(deltaTime) {
+    this.timeElapsed += deltaTime;
   }
 
   setTarget(newTarget) {

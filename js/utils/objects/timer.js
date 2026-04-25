@@ -1,13 +1,11 @@
-import { TICK_TIME } from '/js/consts.js';
-
 export class Timer {
   constructor(duration) {
     this.duration = duration;
     this.elapsed = 0;
   }
 
-  update() {
-    this.elapsed += TICK_TIME;
+  update(deltaTime) {
+    this.elapsed += deltaTime;
   }
 
   isReady() {

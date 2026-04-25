@@ -12,7 +12,7 @@ export async function start() {
   await setup();
 }
 
-export async function update() {
+export async function update(deltaTime) {
   const isLogged = await isSessionLogged();
   if (isLogged === lastIsLogged) {
     return;

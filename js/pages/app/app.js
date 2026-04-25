@@ -5,16 +5,19 @@ import {
   start as startGame,
   update as updateGame,
 } from '@appGame/gameController.js';
+import { Loop } from '@utils/objects/loop.js';
 
 window.addEventListener('DOMContentLoaded', start);
+const loop = new Loop(33);
 
 async function start() {
+  loop.addUpdateCallback(update);
   await startUI();
   await startGame();
-  setInterval(update, TICK_TIME);
+  loop.start();
 }
 
-async function update() {
-  await updateGame();
-  await updateUI();
+async function update(deltaTime) {
+  await updateGame(deltaTime);
+  await updateUI(deltaTime);
 }

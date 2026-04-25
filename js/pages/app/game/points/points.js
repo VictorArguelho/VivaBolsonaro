@@ -25,8 +25,8 @@ export function loadSave(save) {
   pointsVisual.setTarget(state.points);
 }
 
-export function update() {
-  pointsVisual.update();
+export function update(deltaTime) {
+  pointsVisual.update(deltaTime);
 }
 
 export function getPoints() {

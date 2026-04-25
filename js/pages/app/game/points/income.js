@@ -5,9 +5,9 @@ import { getAllUpgradesIncomes } from '@appGame/upgrades/upgradesLogic.js';
 const clickVisual = new SmoothValue(SMOOTH_TIME, 1);
 const idleVisual = new SmoothValue(SMOOTH_TIME, 0);
 
-export function update() {
-  clickVisual.update();
-  idleVisual.update();
+export function update(deltaTime) {
+  clickVisual.update(deltaTime);
+  idleVisual.update(deltaTime);
 
   updateVisuals();
 }
