@@ -1,21 +1,23 @@
 import { getSession, isSessionLogged } from '@services/authentication.js';
 import { elements } from '@appUI/header/elements.js';
+import { getUserData } from '@services/user.js';
+import { USER_INFO_COLLECTION } from '/js/consts.js';
 
 export async function render() {
   const isLogged = await isSessionLogged();
 
   if (isLogged) {
-    const session = await getSession();
-    elements.header.innerHTML = getLoggedHTML(session.email);
+    const userInfo = await getUserData(USER_INFO_COLLECTION);
+    elements.header.innerHTML = getLoggedHTML(userInfo.username);
   }
   if (!isLogged) {
     elements.header.innerHTML = getNotLoggedHTML();
   }
 }
 
-function getLoggedHTML(email) {
+function getLoggedHTML(username) {
   return `
-    <span class="text email-text">${email}</span>
+    <span class="text email-text">${username}</span>
     <button type="button" class="button text logout-button">Sair</button>
   `;
 }

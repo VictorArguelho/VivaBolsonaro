@@ -27,9 +27,17 @@
     </header>
 
     <h1 class="title">Cadastrar</h1>
-
     <div class="form-container">
       <div class="form">
+        <div class="form-field">
+          <label class="text">Usuário</label>
+          <input
+            type="username"
+            class="field text user-field"
+            name="user-field"
+          />
+        </div>
+
         <div class="form-field">
           <label class="text">Email</label>
           <input
@@ -67,7 +75,9 @@
           "@signupPage/": "/js/pages/signup/",
 
           "@appGame/": "/js/pages/app/game/",
-          "@appUI/": "/js/pages/app/ui/"
+          "@appUI/": "/js/pages/app/ui/",
+
+          "@firebase/firestore": "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
         }
       }
     </script>

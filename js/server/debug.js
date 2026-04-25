@@ -8,7 +8,7 @@ import {
   logout,
 } from '@services/authentication.js';
 
-import { setUserData, getUserData } from '@services/database.js';
+import { setUserData, getUserData } from '@services/user.js';
 
 window.debug = {
   signUp,

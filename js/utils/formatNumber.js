@@ -1,16 +1,10 @@
 const prefixes = ['', 'K', 'M', 'B', 'T'];
 
-export function formatNumber(number, precision) {
-  const length = number.toString().length;
-  const prefixeIndex = Math.trunc((length - 1) / 3);
-  const precisionPowered = Math.pow(10, precision);
+export function formatNumber(number, precision = 1) {
+  if (number < 1000) return String(number);
 
-  if (prefixeIndex === 0) {
-    return number;
-  }
+  const prefixeIndex = Math.floor(Math.log10(number) / 3);
+  const scaled = number / Math.pow(1000, prefixeIndex);
 
-  const trunced = Math.trunc(
-    (number / Math.pow(1000, prefixeIndex)) * precisionPowered,
-  );
-  return `${trunced / precisionPowered}${prefixes[prefixeIndex]}`;
+  return `${scaled.toFixed(precision)}${prefixes[prefixeIndex]}`;
 }

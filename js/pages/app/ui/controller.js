@@ -13,6 +13,8 @@ import {
   update as shopUpdate,
 } from '@appUI/shop/controller.js';
 
+import { update as leaderboardUpdate } from '@appUI/leaderboard/controller.js';
+
 export async function start() {
   await headerStart();
   clickStart();
@@ -23,4 +25,5 @@ export async function update() {
   await headerUpdate();
   clickUpdate();
   shopUpdate();
+  await leaderboardUpdate();
 }

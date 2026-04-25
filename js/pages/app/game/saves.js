@@ -1,5 +1,5 @@
 import { DocumentNotFoundException } from '@server/exceptions/database/databaseExceptions.js';
-import { setUserData, getUserData } from '@services/database.js';
+import { setUserData, getUserData } from '@services/user.js';
 import { isSessionLogged } from '@services/authentication.js';
 
 import { GAME_SAVE_KEY, GAME_SAVE_COLLECTION } from '/js/consts.js';
