@@ -1,4 +1,6 @@
 .zone--shop {
+  width: 100%;
+  min-height: 800px;
   background: rgb(var(--green), 0.3);
   border: 3px solid rgb(var(--green));
   gap: 1rem;

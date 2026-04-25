@@ -1,6 +1,7 @@
 import { upgradeId } from '@appGame/upgrades/upgradesData.js';
 import { getUpgradeInfo } from '@appGame/upgrades/upgradesLogic.js';
 import { elements } from '@appUI/shop/elements.js';
+import { formatNumber } from '@utils/formatNumber.js';
 
 export function render() {
   elements.shop.innerHTML = '<h2 class="title">LOJA</h2>';
@@ -41,7 +42,7 @@ function getUpgradeHTML(upgradeId, text, click, idle, cost) {
 
           <span class="text">
             Custo:           
-            <span class="emphasis cost-value">${cost}</span>
+            <span class="emphasis cost-value">${formatNumber(cost, 2)}</span>
           </span>
         </div>
 

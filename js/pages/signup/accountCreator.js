@@ -1,5 +1,5 @@
 import { signUp } from '@services/authentication.js';
-import { USER_INFO_COLLECTION, USERNAMES_COLLECTION } from '/js/consts.js';
+import { USER_INFO_COLLECTION } from '/js/consts.js';
 import { UsernameAlreadyTakedException } from '@signupPage/exceptions/usernameAlreadyTakedException.js';
 import { runTransaction } from '@services/database.js';
 import { deleteUser } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js';

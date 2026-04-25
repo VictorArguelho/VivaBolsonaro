@@ -23,10 +23,13 @@ import {
   update as updateIncomes,
 } from '@appGame/points/income.js';
 
+import { update as updateLeaderboard } from '@appGame/leaderboard.js';
+
 import { saveGame, loadGame } from '@appGame/saves.js';
 
 const idleTimer = new Timer(TICK_TIME);
 const saveTimer = new Timer(10000);
+const leaderboardTimer = new Timer(5000);
 
 export async function start() {
   await loadGame();
@@ -38,6 +41,7 @@ export async function update() {
 
   idleTimer.update();
   saveTimer.update();
+  leaderboardTimer.update();
 
   if (idleTimer.isReady()) {
     earnPoints(getIdle() * (TICK_TIME / 1000));
@@ -45,6 +49,10 @@ export async function update() {
 
   if (saveTimer.isReady()) {
     await saveGame();
+  }
+
+  if (leaderboardTimer.isReady()) {
+    await updateLeaderboard();
   }
 }
 

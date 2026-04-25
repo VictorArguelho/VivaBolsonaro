@@ -1,4 +1,6 @@
 .zone--click {
+  width: 100%;
+  min-height: 800px;
   background: rgb(var(--yellow), 0.3);
   border: 3px solid rgb(var(--yellow));
 }

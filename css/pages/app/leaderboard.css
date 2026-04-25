@@ -1,0 +1,28 @@
+.zone--leaderboard {
+  width: auto;
+  max-width: 1200px;
+  height: auto;
+
+  background: rgb(var(--yellow), 0.3);
+  border: 3px solid rgb(var(--yellow));
+}
+
+.zone--leaderboard .text {
+  color: rgb(var(--yellow));
+  font-size: 1.75rem;
+}
+
+.zone--leaderboard .emphasis {
+  color: rgb(var(--green));
+  font-size: 2rem;
+}
+
+.zone--leaderboard .title {
+  color: rgb(var(--green));
+}
+
+.zone--leaderboard .leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
