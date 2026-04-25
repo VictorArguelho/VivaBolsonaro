@@ -11,12 +11,12 @@ import {
 } from './exceptions/server/serverExceptions.js';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyD93TIXWOcq6BkqOUSny0eZ6E8SMuzNN4c',
-  authDomain: 'vivabolsonaro-6b39d.firebaseapp.com',
-  projectId: 'vivabolsonaro-6b39d',
-  storageBucket: 'vivabolsonaro-6b39d.firebasestorage.app',
-  messagingSenderId: '632581779747',
-  appId: '1:632581779747:web:7d86443e4f319d81f39c96',
+  apiKey: "AIzaSyCviMpicnGpYcV2cpe7zp8UmxceNIkjda4",
+  authDomain: "vivabolsonaro-a3b22.firebaseapp.com",
+  projectId: "vivabolsonaro-a3b22",
+  storageBucket: "vivabolsonaro-a3b22.firebasestorage.app",
+  messagingSenderId: "934764129118",
+  appId: "1:934764129118:web:6f1043c1f99356d6dfbdcf"
 };
 
 const app = initializeApp(firebaseConfig);
