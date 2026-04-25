@@ -10,7 +10,7 @@ import {
   getDataGeneric,
   setDataGeneric,
   getCollectionGeneric,
-} from '@services/databaseGenerics';
+} from '@services/databaseGenerics.js';
 
 export async function runTransaction(callback) {
   try {

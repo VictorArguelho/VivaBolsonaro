@@ -1,11 +1,11 @@
 import { database, mapServerException } from '@server/firebase.js';
 import { isSessionLogged, getSession } from '@services/authentication.js';
-import { getDataGeneric, setDataGeneric } from '@services/databaseGenerics';
+import { getDataGeneric, setDataGeneric } from '@services/databaseGenerics.js';
 import {
   getData,
   setData,
   runTransaction as dbRunTransaction,
-} from '@services/database';
+} from '@services/database.js';
 
 async function getUserUid() {
   if (!(await isSessionLogged())) {
