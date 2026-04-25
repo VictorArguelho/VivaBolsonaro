@@ -64,7 +64,7 @@ async function executeAuthenticationOperation(operation, email, password) {
   }
 }
 
-function mapAuthenticationException(exception) {
+export function mapAuthenticationException(exception) {
   const code = exception?.code;
   const serverException = mapServerException(exception);
 

@@ -7,7 +7,7 @@ import {
   runTransaction as dbRunTransaction,
 } from '@services/database.js';
 
-async function getUserUid() {
+export async function getUserUid() {
   if (!(await isSessionLogged())) {
     throw new UserNotAuthenticatedException();
   }
