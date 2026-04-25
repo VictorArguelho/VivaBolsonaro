@@ -12,14 +12,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  width: 300px;
-  height: 175px;
+  width: 330px;
+  height: auto;
   background-color: rgb(var(--green), 0.3);
   border: 3px solid rgb(var(--green));
   border-radius: 10px;
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  gap: 20px;
 }
 
 .text {
