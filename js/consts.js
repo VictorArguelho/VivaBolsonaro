@@ -1,4 +1,4 @@
-export const VERSION = 'v3.0';
+export const VERSION = 'v3.1';
 export const TICK_TIME = 5;
 export const SMOOTH_TIME = 300;
 
