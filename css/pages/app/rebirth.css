@@ -1,0 +1,41 @@
+.rebirth {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--green), 0.4),
+    rgb(var(--yellow), 0.4)
+  );
+  backdrop-filter: blur(0.3);
+  padding: 1rem;
+
+  border: 3px solid rgb(var(--green), 0.7);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.rebirth .text {
+  color: rgb(var(--yellow));
+  font-size: 1.3rem;
+}
+
+.rebirth .emphasis {
+  color: rgb(var(--green));
+  font-size: 1.5rem;
+}
+
+.rebirth .title {
+  color: rgb(var(--yellow));
+  font-size: 3.5rem;
+}
+
+.rebirth .button {
+  width: 200px;
+  font-size: 3rem;
+}
+
+.rebirth .stats {
+  display: flex;
+  flex-direction: column;
+}

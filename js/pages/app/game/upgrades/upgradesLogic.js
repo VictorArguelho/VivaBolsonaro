@@ -1,9 +1,12 @@
 import {
   upgradeId,
+  incomeType,
   upgradesConfig,
   upgradesState,
   setUpgradesState,
 } from '@appGame/upgrades/upgradesData.js';
+
+import { getBonus } from '@appGame/rebirth.js';
 
 export function getSave() {
   return upgradesState;
@@ -17,6 +20,13 @@ export function loadSave(save) {
   setUpgradesState(save);
 }
 
+export function rebirth() {
+  for (const i in upgradeId) {
+    const id = upgradeId[i];
+    upgradesState[id].level = 0;
+  }
+}
+
 export function getUpgradeInfo(upgradeId) {
   const upgradeConfig = upgradesConfig[upgradeId];
   const upgradeState = upgradesState[upgradeId];
@@ -24,11 +34,13 @@ export function getUpgradeInfo(upgradeId) {
   return Object.freeze({
     text: upgradeConfig.text,
     baseCost: upgradeConfig.startCost,
-    baseIncomes: upgradeConfig.incomes,
+    incomeType: upgradeConfig.incomeType,
+    baseIncome: upgradeConfig.income,
 
     level: upgradeState.level,
     cost: getUpgradeCost(upgradeId),
-    incomes: getUpgradeIncomes(upgradeId),
+    income: getUpgradeIncome(upgradeId),
+    totalIncome: getUpgradeTotalIncome(upgradeId),
   });
 }
 
@@ -48,10 +60,15 @@ export function getAllUpgradesIncomes() {
   };
 
   for (const id in upgradeId) {
-    const incomes = getUpgradeIncomes(upgradeId[id]);
+    const income = getUpgradeTotalIncome(upgradeId[id]);
+    const type = upgradesConfig[upgradeId[id]].incomeType;
 
-    allIncomes.click += incomes.click;
-    allIncomes.idle += incomes.idle;
+    if (type === incomeType.CLICK) {
+      allIncomes.click += income;
+    }
+    if (type === incomeType.IDLE) {
+      allIncomes.idle += income;
+    }
   }
 
   return allIncomes;
@@ -61,12 +78,13 @@ export function levelUpUpgrade(upgradeId) {
   upgradesState[upgradeId].level++;
 }
 
-function getUpgradeIncomes(upgradeId) {
-  const incomes = upgradesConfig[upgradeId].incomes;
+function getUpgradeTotalIncome(upgradeId) {
+  const income = getUpgradeIncome(upgradeId);
   const level = upgradesState[upgradeId].level;
 
-  return {
-    click: incomes.click * level,
-    idle: incomes.idle * level,
-  };
+  return income * level;
+}
+
+function getUpgradeIncome(upgradeId) {
+  return upgradesConfig[upgradeId].income * getBonus();
 }

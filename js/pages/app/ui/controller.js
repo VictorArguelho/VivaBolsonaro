@@ -13,12 +13,22 @@ import {
   update as shopUpdate,
 } from '@appUI/shop/controller.js';
 
-import { update as leaderboardUpdate } from '@appUI/leaderboard/controller.js';
+import {
+  start as rebirthStart,
+  update as rebirthUpdate,
+} from '@appUI/rebirth/controller.js';
+
+import {
+  start as leaderboardStart,
+  update as leaderboardUpdate,
+} from '@appUI/leaderboard/controller.js';
 
 export async function start() {
   await headerStart();
   clickStart();
   shopStart();
+  rebirthStart();
+  await leaderboardStart();
 }
 
 export async function update(deltaTime) {
@@ -26,4 +36,5 @@ export async function update(deltaTime) {
   clickUpdate(deltaTime);
   shopUpdate(deltaTime);
   await leaderboardUpdate(deltaTime);
+  rebirthUpdate(deltaTime);
 }

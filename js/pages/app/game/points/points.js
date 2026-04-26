@@ -2,6 +2,9 @@ import { SmoothValue } from '@utils/objects/smoothValue.js';
 import { SMOOTH_TIME } from '/js/consts.js';
 
 let state = {
+  totalEarned: 0,
+  totalSpent: 0,
+
   points: 0,
   earned: 0,
   spent: 0,
@@ -11,6 +14,9 @@ const pointsVisual = new SmoothValue(SMOOTH_TIME, state.points);
 
 export function getSave() {
   return {
+    totalEarned: state.totalEarned,
+    totalSpent: state.totalSpent,
+
     points: state.points,
     earned: state.earned,
     spent: state.spent,
@@ -18,6 +24,9 @@ export function getSave() {
 }
 
 export function loadSave(save) {
+  state.totalEarned = save?.earned ?? 0;
+  state.totalSpent = save?.spent ?? 0;
+
   state.points = save?.points ?? 0;
   state.earned = save?.earned ?? 0;
   state.spent = save?.spent ?? 0;
@@ -29,6 +38,17 @@ export function update(deltaTime) {
   pointsVisual.update(deltaTime);
 }
 
+export function rebirth() {
+  state.totalEarned += state.earned;
+  state.totalSpent += state.spent;
+
+  state.points = 0;
+  state.earned = 0;
+  state.spent = 0;
+
+  pointsVisual.setTarget(0);
+}
+
 export function getPoints() {
   return state.points;
 }
@@ -38,11 +58,11 @@ export function getPointsVisual() {
 }
 
 export function getTotalEarned() {
-  return state.earned;
+  return state.earned + state.totalEarned;
 }
 
 export function getTotalSpent() {
-  return state.spent;
+  return state.spent + state.totalSpent;
 }
 
 export function getState() {
