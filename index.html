@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="css/pages/app/zones.css" />
     <link rel="stylesheet" href="css/pages/app/click.css" />
     <link rel="stylesheet" href="css/pages/app/header.css" />
+    <link rel="stylesheet" href="css/pages/app/rebirth.css" />
     <link rel="stylesheet" href="css/pages/app/shop.css" />
     <link rel="stylesheet" href="css/pages/app/leaderboard.css" />
 
@@ -32,6 +33,27 @@
 
     <main class="game">
       <h1 class="title">Bolsonaro mereçe justiça!!</h1>
+
+      <div class="rebirth">
+        <button type="button" class="button text">Rebirth</button>
+
+        <div class="stats">
+          <span class="text current-rebirth">
+            Rebirth atual:
+            <span class="emphasis">0</span>
+          </span>
+
+          <span class="text current-bonus">
+            Bonus atual:
+            <span class="emphasis">0</span>
+          </span>
+
+          <span class="text current-price">
+            Custo:
+            <span class="emphasis">1000000</span>
+          </span>
+        </div>
+      </div>
 
       <div class="zones">
         <section class="zone zone--click">
@@ -66,12 +88,13 @@
           </p>
         </section>
 
-        <section class="zone zone--shop"></section>
+        <section class="zone zone--shop">
+          <h2 class="title">LOJA</h2>
+          <div class="container-upgrades"></div>
+        </section>
       </div>
 
-      <div class="zone zone--leaderboard">
-        
-      </div>
+      <div class="zone zone--leaderboard"></div>
     </main>
 
     <script type="importmap">
@@ -93,6 +116,7 @@
         }
       }
     </script>
+    <script type="module" src="js/debug.js"></script>
     <script type="module" src="js/server/debug.js"></script>
     <script type="module" src="js/pages/app/app.js"></script>
   </body>

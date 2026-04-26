@@ -1,5 +1,5 @@
 export const elements = {
-  shop: document.querySelector('.zone--shop'),
+  upgradesContainer: document.querySelector('.container-upgrades'),
   upgrades: {},
 };
 

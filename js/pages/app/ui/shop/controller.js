@@ -23,9 +23,7 @@ function updateUpgrade(upgradeId) {
   const upgrade = getUpgrade(upgradeId);
   const info = getUpgradeInfo(upgradeId);
 
-  upgrade.querySelector('.cost-value').textContent = `${formatNumber(info.cost, 2)}`;
-  upgrade.querySelector('.income-click-value').textContent =
-    `+${info.baseIncomes.click}`;
-  upgrade.querySelector('.income-idle-value').textContent =
-    `+${info.baseIncomes.idle}`;
+  upgrade.querySelector('.cost-value').textContent = formatNumber(info.cost, 2);
+  upgrade.querySelector('.level-value').textContent = info.level;
+  upgrade.querySelector(`.upgrade .income--${info.incomeType} .income-value`).textContent = Math.round(info.income);
 }

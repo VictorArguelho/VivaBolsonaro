@@ -2,12 +2,12 @@ import { upgradeId } from '@appGame/upgrades/upgradesData.js';
 import { getUpgradeInfo } from '@appGame/upgrades/upgradesLogic.js';
 import { elements } from '@appUI/shop/elements.js';
 import { formatNumber } from '@utils/formatNumber.js';
+import { incomeType } from '@appGame/upgrades/upgradesData.js';
 
 export function render() {
-  elements.shop.innerHTML = '<h2 class="title">LOJA</h2>';
   for (const id in upgradeId) {
     const upgrade = createUpgrade(upgradeId[id]);
-    elements.shop.innerHTML += upgrade;
+    elements.upgradesContainer.innerHTML += upgrade;
   }
 }
 
@@ -17,27 +17,28 @@ function createUpgrade(upgradeId) {
   return getUpgradeHTML(
     upgradeId,
     info.text,
-    info.baseIncomes.click,
-    info.baseIncomes.idle,
+    info.incomeType,
+    info.income,
     info.baseCost,
+    info.level,
   );
 }
 
-function getUpgradeHTML(upgradeId, text, click, idle, cost) {
+function getUpgradeHTML(upgradeId, text, type, income, cost, level) {
   return `
     <button type="button" class="button upgrade" data-upgrade="${upgradeId}">
       <span class="title">${text}</span>
 
       <div class="info">
         <div class="stats">
-          <span class="text">
-            Ajudas por clique:           
-            <span class="emphasis income-click-value">${click}</span>
+          <span class="text income income--${type}">
+            ${getIncomeText(type)}      
+            <span class="emphasis income-value">${income}</span>
           </span>
 
           <span class="text">
-            Ajudas por segundo:           
-            <span class="emphasis income-idle-value">${idle}</span>
+            Nível:           
+            <span class="emphasis level-value">${level}</span>
           </span>
 
           <span class="text">
@@ -50,4 +51,14 @@ function getUpgradeHTML(upgradeId, text, click, idle, cost) {
       </div>
     </button>
   `;
+}
+
+function getIncomeText(type) {
+  if (type === incomeType.CLICK) {
+    return 'Ajudas por clique:';
+  }
+
+  if (type === incomeType.IDLE) {
+    return 'Ajudas por segundo:';
+  }
 }

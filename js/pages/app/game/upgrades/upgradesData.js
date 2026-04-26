@@ -1,70 +1,132 @@
 export const upgradeId = Object.freeze({
-  AUMENTAR_AJUDA: '1',
-  AUMENTAR_MUITO_AJUDA: '2',
-  AUMENTAR_AJUDA_CARALHO: '3',
-  AUMENTAR_AJUDA_CARALHO_PLATINIUM: '4',
+  PORTE_ARMA: '1',
+  CLOROQUINA_BOOST: '2',
+  CAMPANHA_BOLSONARISTA: '3',
+  ISENCAO_JETSKY: '4',
+  DIVULGACAO_ZAP: '5',
+  ESPALHAR_PANFLETOS: '6',
+  CAMISA_SELECAO: '7',
+  FAMILIA_TRADICIONAL: '8',
+});
+
+export const incomeType = Object.freeze({
+  CLICK: 'click',
+  IDLE: 'idle',
 });
 
 export const upgradesConfig = Object.freeze({
-  [upgradeId.AUMENTAR_AJUDA]: Object.freeze({
-    text: 'Aumentar ajuda',
-    startCost: 15,
-    multPerLevel: 1.25,
-    incomes: Object.freeze({
-      click: 1,
-      idle: 0,
-    }),
+  [upgradeId.PORTE_ARMA]: Object.freeze({
+    text: 'Apoiar porte de arma',
+    startCost: 30,
+    multPerLevel: 1.35,
+    incomeType: incomeType.CLICK,
+    income: 1,
   }),
 
-  [upgradeId.AUMENTAR_MUITO_AJUDA]: Object.freeze({
-    text: 'Aumentar muito a ajuda',
-    startCost: 500,
+  [upgradeId.CLOROQUINA_BOOST]: Object.freeze({
+    text: 'Coloroquina boost',
+    startCost: 300,
     multPerLevel: 1.25,
-    incomes: Object.freeze({
-      click: 0,
-      idle: 50,
-    }),
+    incomeType: incomeType.IDLE,
+    income: 15,
   }),
 
-  [upgradeId.AUMENTAR_AJUDA_CARALHO]: Object.freeze({
-    text: 'Aumentar ajuda pra caralho',
+  [upgradeId.CAMPANHA_BOLSONARISTA]: Object.freeze({
+    text: 'Campanha bolsonarista',
+    startCost: 1000,
+    multPerLevel: 1.2,
+    incomeType: incomeType.CLICK,
+    income: 5,
+  }),
+
+  [upgradeId.ISENCAO_JETSKY]: Object.freeze({
+    text: 'Isenção de Jet Skis',
+    startCost: 5000,
+    multPerLevel: 1.19,
+    incomeType: incomeType.IDLE,
+    income: 75,
+  }),
+
+  [upgradeId.DIVULGACAO_ZAP]: Object.freeze({
+    text: 'Divulgação no Zap',
     startCost: 10000,
-    multPerLevel: 1.25,
-    incomes: Object.freeze({
-      click: 100,
-      idle: 0,
-    }),
+    multPerLevel: 1.18,
+    incomeType: incomeType.CLICK,
+    income: 25,
   }),
 
-  [upgradeId.AUMENTAR_AJUDA_CARALHO_PLATINIUM]: Object.freeze({
-    text: 'Aumentar ajuda platinium+',
-    startCost: 15000,
-    multPerLevel: 1.25,
-    incomes: Object.freeze({
-      click: 0,
-      idle: 5000,
-    }),
+  [upgradeId.ESPALHAR_PANFLETOS]: Object.freeze({
+    text: 'Espalhar Panfletos',
+    startCost: 25000,
+    multPerLevel: 1.17,
+    incomeType: incomeType.IDLE,
+    income: 150,
+  }),
+
+  [upgradeId.CAMISA_SELECAO]: Object.freeze({
+    text: 'Camiseta da seleção',
+    startCost: 50000,
+    multPerLevel: 1.15,
+    incomeType: incomeType.CLICK,
+    income: 100,
+  }),
+
+  [upgradeId.FAMILIA_TRADICIONAL]: Object.freeze({
+    text: 'Familia tradicional brasileira',
+    startCost: 500000,
+    multPerLevel: 1.15,
+    incomeType: incomeType.IDLE,
+    income: 1000,
   }),
 });
 
 export let upgradesState = {
-  [upgradeId.AUMENTAR_AJUDA]: {
+  [upgradeId.PORTE_ARMA]: {
     level: 0,
   },
 
-  [upgradeId.AUMENTAR_MUITO_AJUDA]: {
+  [upgradeId.CLOROQUINA_BOOST]: {
     level: 0,
   },
 
-  [upgradeId.AUMENTAR_AJUDA_CARALHO]: {
+  [upgradeId.CAMPANHA_BOLSONARISTA]: {
     level: 0,
   },
 
-  [upgradeId.AUMENTAR_AJUDA_CARALHO_PLATINIUM]: {
+  [upgradeId.ISENCAO_JETSKY]: {
+    level: 0,
+  },
+
+  [upgradeId.DIVULGACAO_ZAP]: {
+    level: 0,
+  },
+
+  [upgradeId.ESPALHAR_PANFLETOS]: {
+    level: 0,
+  },
+
+  [upgradeId.CAMISA_SELECAO]: {
+    level: 0,
+  },
+
+  [upgradeId.FAMILIA_TRADICIONAL]: {
     level: 0,
   },
 };
 
 export function setUpgradesState(newState) {
-  upgradesState = newState;
+  if (!newState) {
+    return;
+  }
+
+  for (const i in upgradeId) {
+    const id = upgradeId[i];
+    const newIdState = newState[id];
+
+    if (newIdState) {
+      upgradesState[id].level = newIdState.level;
+    } else {
+      upgradesState[id].level = 0;
+    }
+  }
 }

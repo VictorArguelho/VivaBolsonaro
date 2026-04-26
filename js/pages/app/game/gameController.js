@@ -22,6 +22,12 @@ import {
   update as updateIncomes,
 } from '@appGame/points/income.js';
 
+import {
+  getSave as getSaveRebirth,
+  loadSave as loadSaveRebirth,
+  tryRebirth as tryDoRebirth,
+} from '@appGame/rebirth.js';
+
 import { update as updateLeaderboard } from '@appGame/leaderboard.js';
 
 import { saveGame, loadGame } from '@appGame/saves.js';
@@ -55,12 +61,14 @@ export function getSave() {
   return {
     points: getSavePoints(),
     upgrades: getSaveUpgrades(),
+    rebirth: getSaveRebirth(),
   };
 }
 
 export function loadSave(save) {
   loadSavePoints(save?.points ?? null);
   loadSaveUpgrades(save?.upgrades ?? null);
+  loadSaveRebirth(save?.rebirth ?? null);
 }
 
 export function click() {
@@ -73,4 +81,8 @@ export function buyUpgrade(upgradeId) {
     trySpendPoints(price);
     levelUpUpgrade(upgradeId);
   }
+}
+
+export function tryRebirth() {
+  tryDoRebirth();
 }
