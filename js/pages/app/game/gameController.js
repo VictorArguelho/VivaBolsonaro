@@ -32,7 +32,7 @@ import { update as updateLeaderboard } from '@appGame/leaderboard.js';
 
 import { saveGame, loadGame } from '@appGame/saves.js';
 
-import { computeClick, getSave as getSaveGameInfo, loadSave as loadSaveGameInfo } from '@appGame/gameInfo';
+import { computeClick, getSave as getSaveGameInfo, loadSave as loadSaveGameInfo } from '@appGame/gameInfo.js';
 
 const saveTimer = new Timer(60000);
 const leaderboardTimer = new Timer(30000);
