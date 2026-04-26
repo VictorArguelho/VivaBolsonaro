@@ -32,6 +32,8 @@ import { update as updateLeaderboard } from '@appGame/leaderboard.js';
 
 import { saveGame, loadGame } from '@appGame/saves.js';
 
+import { computeClick, getSave as getSaveGameInfo, loadSave as loadSaveGameInfo } from '@appGame/gameInfo';
+
 const saveTimer = new Timer(60000);
 const leaderboardTimer = new Timer(30000);
 
@@ -62,6 +64,7 @@ export function getSave() {
     points: getSavePoints(),
     upgrades: getSaveUpgrades(),
     rebirth: getSaveRebirth(),
+    info: getSaveGameInfo(),
   };
 }
 
@@ -69,10 +72,12 @@ export function loadSave(save) {
   loadSavePoints(save?.points ?? null);
   loadSaveUpgrades(save?.upgrades ?? null);
   loadSaveRebirth(save?.rebirth ?? null);
+  loadSaveGameInfo(save?.info ?? null);
 }
 
 export function click() {
   earnPoints(getClick());
+  computeClick();
 }
 
 export function buyUpgrade(upgradeId) {
