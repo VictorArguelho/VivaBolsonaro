@@ -7,6 +7,7 @@ export const upgradeId = Object.freeze({
   ESPALHAR_PANFLETOS: '6',
   CAMISA_SELECAO: '7',
   FAMILIA_TRADICIONAL: '8',
+  PASSEATA_BOLSONARISTA: '9'
 });
 
 export const incomeType = Object.freeze({
@@ -78,6 +79,14 @@ export const upgradesConfig = Object.freeze({
     incomeType: incomeType.IDLE,
     income: 1000,
   }),
+
+  [upgradeId.PASSEATA_BOLSONARISTA]: Object.freeze({
+    text: 'Passeata bolsonarista',
+    startCost: 1500000,
+    multPerLevel: 1.15,
+    incomeType: incomeType.CLICK,
+    income: 750,
+  }),
 });
 
 export let upgradesState = {
@@ -110,6 +119,10 @@ export let upgradesState = {
   },
 
   [upgradeId.FAMILIA_TRADICIONAL]: {
+    level: 0,
+  },
+
+  [upgradeId.PASSEATA_BOLSONARISTA]: {
     level: 0,
   },
 };
