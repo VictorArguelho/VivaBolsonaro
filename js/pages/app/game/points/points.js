@@ -24,8 +24,8 @@ export function getSave() {
 }
 
 export function loadSave(save) {
-  state.totalEarned = save?.earned ?? 0;
-  state.totalSpent = save?.spent ?? 0;
+  state.totalEarned = save?.totalEarned ?? 0;
+  state.totalSpent = save?.totalSpend ?? 0;
 
   state.points = save?.points ?? 0;
   state.earned = save?.earned ?? 0;
