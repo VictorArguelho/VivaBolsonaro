@@ -7,6 +7,10 @@ import {
 } from '@appGame/gameController.js';
 import { Loop } from '@utils/objects/loop.js';
 
+import { switchPage } from '../../pages.js';
+
+switchPage('caiu');
+
 window.addEventListener('DOMContentLoaded', start);
 const loop = new Loop(33);
 
