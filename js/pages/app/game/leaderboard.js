@@ -27,6 +27,6 @@ export async function getTop() {
   return getCollectionData(
     LEADERBOARD_COLLECTION,
     orderBy('points', 'desc'),
-    limit(100),
+    limit(10),
   );
 }
