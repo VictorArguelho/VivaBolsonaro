@@ -9,7 +9,7 @@ import { Loop } from '@utils/objects/loop.js';
 
 import { switchPage } from '../../pages.js';
 
-switchPage('caiu');
+//switchPage('caiu');
 
 window.addEventListener('DOMContentLoaded', start);
 const loop = new Loop(33);
