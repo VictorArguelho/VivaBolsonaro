@@ -35,7 +35,7 @@ import { saveGame, loadGame } from '@appGame/saves.js';
 import { computeClick, getSave as getSaveGameInfo, loadSave as loadSaveGameInfo } from '@appGame/gameInfo.js';
 
 const saveTimer = new Timer(60000);
-const leaderboardTimer = new Timer(30000);
+const leaderboardTimer = new Timer(60000);
 
 export async function start() {
   await loadGame();
